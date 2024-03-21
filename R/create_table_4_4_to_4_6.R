@@ -12,13 +12,13 @@
 #' t4.5 <- create_t4.4_5_6(bth_data, year = 2022 , by_var = bthimar, rural_urban = "urban" )
 #' t4.6 <- create_t4.4_5_6(bth_data, year = 2022 , by_var = bthimar, rural_urban = "rural" )
 #' 
-create_t4.4_5_6 <- function(data, year = 2022 , by_var = multbth, rural_urban = "no") {
+create_t4.4_5_6 <- function(data, year = 2022, col_var = fert_age_grp, by_var = multbth, rural_urban = "no") {
   if(rural_urban == "no"){
   output <- data |>
     filter(doryr == year & is.na(sbind)) |>
-    group_by(fert_age_grp, {{by_var}}) |>
+    group_by({{col_var}}, {{by_var}}) |>
     mutate({{by_var}} := ifelse(is.na({{by_var}}), 0, {{by_var}}),
-           fert_age_grp := ifelse(is.na(fert_age_grp), "Not Stated", fert_age_grp)) |>
+           {{col_var}} := ifelse(is.na({{col_var}}), "Not Stated", {{col_var}})) |>
     summarise(Total = n()) |>
     pivot_wider(names_from = {{by_var}}, values_from = Total, values_fill = 0) |>
     adorn_totals(c("col","row"))
@@ -28,9 +28,9 @@ create_t4.4_5_6 <- function(data, year = 2022 , by_var = multbth, rural_urban = 
   } else {
     output <- data |>
       filter(doryr == year & is.na(sbind) & ruind == rural_urban) |>
-      group_by(fert_age_grp, {{by_var}}) |>
+      group_by({{col_var}}, {{by_var}}) |>
       mutate({{by_var}} := ifelse(is.na({{by_var}}), 0, {{by_var}}),
-             fert_age_grp := ifelse(is.na(fert_age_grp), "Not Stated", fert_age_grp)) |>
+             {{col_var}} := ifelse(is.na({{col_var}}), "Not Stated", {{col_var}})) |>
       summarise(Total = n()) |>
       pivot_wider(names_from = {{by_var}}, values_from = Total, values_fill = 0 ) |>
       adorn_totals(c("col","row"))
@@ -40,3 +40,4 @@ create_t4.4_5_6 <- function(data, year = 2022 , by_var = multbth, rural_urban = 
 }
 }
 
+t4.3 <- create_t4.4_5_6(bth_data, year = 2022, col_var = rgnpob, by_var = urlocation, rural_urban = "no")

@@ -1,7 +1,7 @@
 #' creates Tables 4.5, 4.5 and 4.6
 #'
 #' @param data the dataframe being used
-#' @param year the year od the data needed
+#' @param year the year of the data needed
 #' @param by_var the variable the data is being grouped by
 #' @param rural_urban if this is no then no rural/urban split is used. Else specify "rural" or "urban"
 #'

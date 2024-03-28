@@ -1,4 +1,4 @@
-create_t3.4_to_3.7 <- function(data, est_data, by_var, topic) {
+create_t3.4_to_3.7 <- function(data, est_data, by_var, topic = NA) {
   by_var <- enquo(by_var)
   by_var_name <- quo_name(by_var)
   

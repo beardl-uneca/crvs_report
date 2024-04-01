@@ -9,7 +9,8 @@ bth_data <- read.csv("./data/anon_bth_data.csv") |>
   select(agebm, birthwgt, bthimar, dob, dor, gestatn, multbth, multtype, rgn, rgnpob, ru11ind, sbind, sex_orig)
 
 dth_data <- read.csv("./data/anon_dth_data.csv") |>
-  select(agec, agecunit, ageinyrs, dod, dor, dec_stat_dob, icd10u, icd10uf, rgn, rgnpod, ru11ind, relation, sex_orig)
+  select(agec, agecunit, ageinyrs, dod, dor, dec_stat_dob, icd10u,
+         icd10uf, i10p001, i10pf001, rgn, rgnpod, ru11ind, relation, sex_orig)
 
 bth_est <- read.csv("./data/rgn_bth_est.csv") |>
   filter(!year %in% 2023 ) |>
@@ -64,9 +65,17 @@ dth_data <- dth_data |>
                             breaks = c(0, 4, 24, 74, Inf),
                             right = F,
                             labels = c("0-4", "5-24", "25-74", "75+")),
+         age_grp_lead = cut(ageinyrs, 
+                            breaks = c(0, 4, 14, 70, Inf),
+                            right = F,
+                            labels = c("<5", "5-14", "15-69", "70+")),
          dodyr = as.numeric(substr(dod, 1, 4)),
          doryr = as.numeric(substr(dor, 1, 4)),
          dobyr = as.numeric(substr(dec_stat_dob, 1, 4)),
+         fic10und = case_when(icd10uf != "" ~ icd10uf, 
+                              icd10uf == "" ~ icd10u,
+                              i10pf001 != "" ~ i10pf001,
+                              i10pf001 == "" ~ i10p001),
          sex = case_when(sex_orig == 1 ~ "male",
                          sex_orig == 2 ~ "female",
                          TRUE ~ "not stated"),
@@ -94,5 +103,6 @@ nspl <- read.csv("./data/NSPL21_FEB_2024_UK.csv") |>
 pops <- merge(pops, nspl, by.x = "ladcode21", by.y = "laua", all.x = TRUE)
 rm(nspl)
 
+cause <- read.csv("./data/causes.csv")
 gc()
 # adjusted counts = registered count / completeness

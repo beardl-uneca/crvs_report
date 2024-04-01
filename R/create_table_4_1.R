@@ -1,4 +1,4 @@
-# Births summary table
+# Table 4.1 Births summary table
 
 t4.1 <- data_birth |>
   filter(Birth_Outcome == "Alive") |>

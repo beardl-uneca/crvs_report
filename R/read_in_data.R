@@ -2,14 +2,15 @@ library(janitor)
 library(dplyr)
 library(tidyr)
 library(lubridate)
-library(theusefulpackage)
+library(crvsreportpackage)
+library(ggplot2)
 
 bth_data <- read.csv("./data/anon_bth_data.csv") |>
   clean_names() |>
   select(agebm, birthwgt, bthimar, dob, dor, gestatn, multbth, multtype, rgn, rgnpob, ru11ind, sbind, sex_orig)
 
 dth_data <- read.csv("./data/anon_dth_data.csv") |>
-  select(agec, agecunit, ageinyrs, dod, dor, dec_stat_dob, icd10u,
+  select(agec, agecunit, ageinyrs, dod, dor, dec_stat_dob, esttyped, icd10u,
          icd10uf, i10p001, i10pf001, rgn, rgnpod, ru11ind, relation, sex_orig)
 
 bth_est <- read.csv("./data/rgn_bth_est.csv") |>
@@ -39,11 +40,15 @@ bth_data <- bth_data |>
            rgn = ifelse(is.na(rgn) | rgn == "", "not stated", rgn),
            reg_delay_days = ifelse(!is.na(dor) & !is.na(dob),
                                    floor(interval(lubridate::ymd(dob),
-                                                  lubridate::ymd(dor))/days()), NA)) |>
+                                                  lubridate::ymd(dor))/days()), NA),
+           usual_res_plocc = case_when(
+             rgn == rgnpob ~ "Same as place of occurrence",
+             rgnpob == "not stated" ~ "Not stated", 
+             rgn != rgnpob ~ "Other location")) |>
   mutate(timeliness = case_when(
     reg_delay_days < 30 ~ "current",
-    reg_delay_days %in% c(30:365) ~ "late", 
-    reg_delay_days > 365 ~ "delayed",
+    reg_delay_days %in% c(30:100) ~ "late", 
+    reg_delay_days > 100 ~ "delayed",
     TRUE ~ "check"
   ))
 
@@ -85,11 +90,15 @@ dth_data <- dth_data |>
            TRUE ~ "not stated"),
          reg_delay_days = ifelse(!is.na(dor) & !is.na(dod),
                                  floor(interval(lubridate::ymd(dod),
-                                                lubridate::ymd(dor))/days()), NA))  |>
+                                                lubridate::ymd(dor))/days()), NA),
+         usual_res_plocc = case_when(
+           rgn == rgnpod ~ "Same as place of occurrence",
+           is.na(rgn) ~ "Not stated", 
+           rgn != rgnpod ~ "Other location"))  |>
   mutate(timeliness = case_when(
     reg_delay_days < 30 ~ "current",
-    reg_delay_days %in% c(30:365) ~ "late", 
-    reg_delay_days > 365 ~ "delayed",
+    reg_delay_days %in% c(30:100) ~ "late", 
+    reg_delay_days > 100 ~ "delayed",
     TRUE ~ "check"
   ))
 
@@ -100,8 +109,24 @@ pops <- read.csv("./data/population.csv")
 nspl <- read.csv("./data/NSPL21_FEB_2024_UK.csv") |>
   distinct(cty, laua, rgn)
 
-pops <- merge(pops, nspl, by.x = "ladcode21", by.y = "laua", all.x = TRUE)
+pops <- merge(pops, nspl, by.x = "ladcode21", by.y = "laua", all.x = TRUE) |>
+  mutate(age_grp_80 = derive_age_groups(age,
+                                        start_age = 5, max_band = 80,
+                                        step_size = 5, under_1 = TRUE),
+         age_grp_wide = cut(age, 
+                            breaks = c(0, 5, 25, 75, Inf),
+                            right = F,
+                            labels = c("00-04", "05-24", "25-74", "75+")),
+         age_grp_50 = derive_age_groups(age,
+                                        start_age = 15, max_band = 50,
+                                        step_size = 5, under_1 = FALSE),
+         fert_age_grp = ifelse(sex == "F",
+                               derive_age_groups(as.numeric(substr(age, 1, 2)),
+                                                 start_age = 15, max_band = 45,
+                                                 step_size = 5, under_1 = FALSE),
+                               NA))
 rm(nspl)
+
 
 cause <- read.csv("./data/causes.csv")
 gc()

@@ -1,44 +1,46 @@
 
 #' Calculates Table 5.5 Deaths by place of occurrence and site of occurrence
 #'
-#' @param data dataframe being used
-#' @param datayear year of data
-#' @param year_var 
+#' @param data data frame being used
+#' @param date_var occurrence data variable being used 
+#' @param data_year year the data is for
+#' @param tablename name for csv output use _ instead of . for names
 #'
-#' @return table 5.5
+#' @return data frame with tabulated results
 #' @export
-#'
-#' @examples t5_5 <- t5_5(data, datayear = 2021)
 #' 
+#' @import dplyr
+#' @import tidyr
+#' @import janitor
 #' 
-create_t5_5a <- function(data, year_var = dodyr, datayear = 2022){  
-  output <- dth_data |>
-    filter(dodyr == 2022) |>
-    group_by(ruind, esttyped) |>
-    summarise(total = n()) |>
-    pivot_wider(names_from = esttyped, values_from = total, values_fill = 0) |>
-    adorn_totals(c("col", "row")) |>
-    mutate(ruind = case_when(
-      ruind == "Total" ~ "All deaths",
-      TRUE ~ ruind)) |> 
-    rename(`Place of occurrence` = ruind, `Total number of deaths` = Total) |>
-    select(`Place of occurrence`, Hospital,	`Other Institution`,	Home,
-           Other,	`Not Stated`, `Total number of deaths`)
-  
-  return(output)
-}
-create_t5_5b <- function(data, year_var = dodyr, datayear = 2022){
+#' @examples t5.5 <- create_t5_5(dth_data, date_var = dodyr, data_year = 2022, tablename = NA)
+#' 
+create_t5_5 <- function(data, date_var = dodyr, data_year = 2022, tablename = NA){  
   output <- data |>
-    filter({{year_var}} == datayear) |>
-    group_by(rgnpod, esttyped) |>
+    filter({{date_var}} == data_year) |>
+    group_by(ruindpod, pod) |>
+    summarise(total = n()) |>
+    pivot_wider(names_from = pod, values_from = total, values_fill = 0) |>
+    adorn_totals(c("col")) |>
+    mutate(ruindpod = case_when(
+      ruindpod == "Total" ~ "All deaths",
+      TRUE ~ ruindpod)) |> 
+    rename(`Place of occurrence` = ruindpod, `Total number of deaths` = Total) 
+  
+  outputb <- data |>
+    filter({{date_var}} == data_year) |>
+    group_by(rgnpod, pod) |>
     summarise(Total = n()) |>
-    pivot_wider(names_from = esttyped, values_from = Total, values_fill = 0) |>
+    pivot_wider(names_from = pod, values_from = Total, values_fill = 0) |>
     adorn_totals(c("col", "row")) |>
     mutate(rgnpod = ifelse(is.na(rgnpod), "Not Stated", rgnpod)) |> 
-    rename(`Place of occurrence` = rgnpod, `Total number of deaths` = Total) |>
-    select(`Place of occurrence`, Hospital,	`Other Institution`,	Home,
-           Other,	`Not Stated`, `Total number of deaths`)
+    rename(`Place of occurrence` = rgnpod, `Total number of deaths` = Total) 
+  
+  output <- rbind(output, outputb)
+  
+  write.csv(output, paste0("./outputs/", tablename, ".csv"), row.names = FALSE)
   return(output)
 }
+
 
 

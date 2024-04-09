@@ -7,19 +7,24 @@ library(ggplot2)
 
 bth_data <- read.csv("./data/anon_bth_data.csv") |>
   clean_names() |>
-  select(agebm, birthwgt, bthimar, dob, dor, gestatn, multbth, multtype, rgn, rgnpob, ru11ind, sbind, sex_orig)
+  select(agebm, birthwgt, bthimar, dob, dor, esttypeb, gestatn, multbth, multtype, rgn, rgnpob, ru11ind, ru11indpob, sbind, sex_orig)
 
 dth_data <- read.csv("./data/anon_dth_data.csv") |>
-  select(agec, agecunit, ageinyrs, dod, dor, dec_stat_dob, esttyped, icd10u,
-         icd10uf, i10p001, i10pf001, rgn, rgnpod, ru11ind, relation, sex_orig)
+  select(agec, agecunit, ageinyrs, cestrss, cestrssr, dod, dor, dec_stat_dob, esttyped, icd10u,
+         icd10uf, i10p001, i10pf001, rgn, rgnpod, ru11ind, ru11indpod, relation, sex_orig)
 
-bth_est <- read.csv("./data/rgn_bth_est.csv") |>
-  filter(!year %in% 2023 ) |>
-  mutate(total = male + female)
+bth_est <- read.csv("./data/new_births_est.csv") |>
+  filter(!year %in% 2023 )
 
-dth_est <- read.csv("./data/rgn_dth_est.csv") |>
-  filter(!year %in% 2023 ) |>
-  mutate(total = male + female)
+dth_est <- read.csv("./data/new_deaths_est.csv") |>
+  mutate(age_grp = case_when(
+    age_grp_85 %in% c("01-04","Under 1") ~ "0-4",
+    age_grp_85 %in% c("05-09", "10-14", "15-19", "20-24") ~ "5-24",
+    age_grp_85 %in% c("25-29", "30-34", "35-39", "40-44", "45-49", "50-54",
+                      "55-59", "60-64", "65-69", "70-74") ~ "25-74",
+    age_grp_85 %in% c("75-79", "80-84", "85 and over") ~ "75+", 
+    TRUE ~ "check")) |>
+  filter(!year %in% 2023 ) 
 
 bth_data <- bth_data |>
     mutate(agebm_grp = derive_age_groups(as.numeric(substr(agebm, 1, 2)),
@@ -37,6 +42,10 @@ bth_data <- bth_data |>
              ru11ind %in% c("A1", "B1", "C1", "C2", "1":"3") ~ "urban",
              ru11ind %in% c("D1", "D2", "E1", "E2", "F1", "F2","4":"8" ) ~ "rural",
              TRUE ~ "not stated"),
+           ruindpob = case_when(
+             ru11indpob %in% c("A1", "B1", "C1", "C2", "1":"3") ~ "urban",
+             ru11indpob %in% c("D1", "D2", "E1", "E2", "F1", "F2","4":"8" ) ~ "rural",
+             TRUE ~ "not stated"),             
            rgn = ifelse(is.na(rgn) | rgn == "", "not stated", rgn),
            reg_delay_days = ifelse(!is.na(dor) & !is.na(dob),
                                    floor(interval(lubridate::ymd(dob),
@@ -44,13 +53,32 @@ bth_data <- bth_data |>
            usual_res_plocc = case_when(
              rgn == rgnpob ~ "Same as place of occurrence",
              rgnpob == "not stated" ~ "Not stated", 
-             rgn != rgnpob ~ "Other location")) |>
+             rgn != rgnpob ~ "Other location"),
+           pob = case_when(
+             esttypeb == 1 ~ "hospital",
+             esttypeb %in% c(2, 3) ~ "hospital",
+             esttypeb %in% c(4, 5, 7) ~ "other",
+             esttypeb == 6 ~ "home",
+             TRUE ~ "unknown"),
+           bthwgt_grp = cut(birthwgt, 
+                            breaks = c(0, 500, seq(1000, 4000, 500), 9000, Inf),
+                            right = F,
+                            labels = c("<500", "500-999", "1,000-1,499",	"1,500-1,999", "2,000-2,499",	
+                                       "2,500-2,999",	"3,000-3,499", "3,500-3,999",	"4,000+", "not stated")),
+           gest_grp = cut(gestatn, 
+                            breaks = c(0,20, 22, 28, 32, 36, 37, 42, 99, Inf),
+                            right = F,
+                            labels = c("<20", "20-21", "22-27",	"28-31", "32-35",	
+                                       "36",	"37-41", "42+", "not stated"))) |>
   mutate(timeliness = case_when(
     reg_delay_days < 30 ~ "current",
     reg_delay_days %in% c(30:100) ~ "late", 
     reg_delay_days > 100 ~ "delayed",
-    TRUE ~ "check"
-  ))
+    TRUE ~ "check"),
+    fert_age_grp = ifelse(is.na(fert_age_grp), "unknown", fert_age_grp),
+    attend = sample(1:5, size = n(), replace = TRUE, prob = seq(1, 0.1, length.out = 5)))
+    
+bth_data$gest_grp[is.na(bth_data$gestatn)] <- "not stated"
 
 
 dth_data <- dth_data |>
@@ -88,19 +116,30 @@ dth_data <- dth_data |>
            ru11ind %in% c("A1", "B1", "C1", "C2", "1":"3") ~ "urban",
            ru11ind %in% c("D1", "D2", "E1", "E2", "F1", "F2","4":"8" ) ~ "rural",
            TRUE ~ "not stated"),
+         ruindpod = case_when(
+           ru11indpod %in% c("A1", "B1", "C1", "C2", "1":"3") ~ "urban",
+           ru11indpod %in% c("D1", "D2", "E1", "E2", "F1", "F2","4":"8" ) ~ "rural",
+           TRUE ~ "not stated"),
          reg_delay_days = ifelse(!is.na(dor) & !is.na(dod),
                                  floor(interval(lubridate::ymd(dod),
                                                 lubridate::ymd(dor))/days()), NA),
          usual_res_plocc = case_when(
            rgn == rgnpod ~ "Same as place of occurrence",
            is.na(rgn) ~ "Not stated", 
-           rgn != rgnpod ~ "Other location"))  |>
+           rgn != rgnpod ~ "Other location"),
+         pod = case_when(
+           cestrss == "H" ~ "home", 
+           cestrss == "E" ~ "elsewhere",
+           esttyped %in% c(1, 18, 99) ~ "hospital",
+           esttyped %in% c(2:4, 7, 10, 14, 20:22, 32, 33) ~ "care home",
+           esttyped %in% c(82, 83) ~ "elsewhere",
+           is.na(esttyped) ~ "Not stated",
+           TRUE ~ "other"))  |>
   mutate(timeliness = case_when(
     reg_delay_days < 30 ~ "current",
     reg_delay_days %in% c(30:100) ~ "late", 
     reg_delay_days > 100 ~ "delayed",
-    TRUE ~ "check"
-  ))
+    TRUE ~ "check"))
 
 
 gc()

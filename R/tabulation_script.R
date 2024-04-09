@@ -18,6 +18,8 @@ t3.8 <- create_t3.8_t3.9(bth_data, bth_est, rgn, topic = "births", tablename = "
 
 t3.9 <- create_t3.8_t3.9(dth_data, dth_est, rgn, topic = "deaths", tablename = "Table_3_9")
 
+t3.10 <- create_t3.10(dth_data, date_var = dodyr, data_year = 2022, tablename = "Table_3_10")
+
 t3.11 <- create_t3.11_and_3.12(bth_data, dobyr, data_year = 2022, by_var = fert_age_grp, tablename = "Table_3_11", topic = "births")
 
 t3.12 <- create_t3.11_and_3.12(dth_data, dodyr, data_year = 2022, by_var = age_grp_80, tablename = "Table_3_12", topic = "deaths")
@@ -28,13 +30,13 @@ t4.2 <- create_t4.2(bth_data, bth_est, data_year = 2022, tablename = "Table_4_2"
 
 t4.3 <- create_t4.3(bth_data, dobyr, 2022)
 
-t4.4 <- create_t4.4_4_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = multbth, rural_urban = "no", tablename = "Table_4_4")
+t4.4 <- create_t4.4_to_4_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = multbth, rural_urban = "no", tablename = "Table_4_4")
 
-t4.5 <- create_t4.4_4_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = bthimar, rural_urban = "urban", tablename = "Table_4_5")
+t4.5 <- create_t4.4_to_4_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = bthimar, rural_urban = "urban", tablename = "Table_4_5")
 
-t4.6 <- create_t4.4_4_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = bthimar, rural_urban = "rural", tablename = "Table_4_6")
+t4.6 <- create_t4.4_to_4_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = bthimar, rural_urban = "rural", tablename = "Table_4_6")
 
-t4.7 <- create_table_4.7(bth_data, doby, 2022, tablename = "Table_4_7")
+t4.7 <- create_t4.7(bth_data, doby, 2022, tablename = "Table_4_7")
 
 t4.8 <- create_t4.8(bth_data, bth_est, dobyr, data_year = 2022, by_var = rgn, tablename = "Table_4_8")
 

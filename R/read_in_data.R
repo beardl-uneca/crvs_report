@@ -17,6 +17,13 @@ bth_est <- read.csv("./data/new_births_est.csv") |>
   filter(!year %in% 2023 )
 
 dth_est <- read.csv("./data/new_deaths_est.csv") |>
+  mutate(age_grp = case_when(
+    age_grp_85 %in% c("01-04","Under 1") ~ "0-4",
+    age_grp_85 %in% c("05-09", "10-14", "15-19", "20-24") ~ "5-24",
+    age_grp_85 %in% c("25-29", "30-34", "35-39", "40-44", "45-49", "50-54",
+                      "55-59", "60-64", "65-69", "70-74") ~ "25-74",
+    age_grp_85 %in% c("75-79", "80-84", "85 and over") ~ "75+", 
+    TRUE ~ "check")) |>
   filter(!year %in% 2023 ) 
 
 bth_data <- bth_data |>

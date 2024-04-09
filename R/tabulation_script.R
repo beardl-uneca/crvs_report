@@ -28,11 +28,11 @@ t4.2 <- create_t4.2(bth_data, bth_est, data_year = 2022, tablename = "Table_4_2"
 
 t4.3 <- create_t4.3(bth_data, dobyr, 2022)
 
-t4.4 <- create_t4.4_5_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = multbth, rural_urban = "no", tablename = "Table_4_4")
+t4.4 <- create_t4.4_4_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = multbth, rural_urban = "no", tablename = "Table_4_4")
 
-t4.5 <- create_t4.4_5_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = bthimar, rural_urban = "urban", tablename = "Table_4_5")
+t4.5 <- create_t4.4_4_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = bthimar, rural_urban = "urban", tablename = "Table_4_5")
 
-t4.6 <- create_t4.4_5_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = bthimar, rural_urban = "rural", tablename = "Table_4_6")
+t4.6 <- create_t4.4_4_6(bth_data, year = 2022, col_var = fert_age_grp, by_var = bthimar, rural_urban = "rural", tablename = "Table_4_6")
 
 t4.7 <- create_table_4.7(bth_data, doby, 2022, tablename = "Table_4_7")
 

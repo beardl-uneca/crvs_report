@@ -16,29 +16,30 @@
 create_table_4.7 <- function(data, date_var, data_year = 2022, tablename = NA){
 output <- bth_data |>
   filter({{date_var}} == data_year & is.na(sbind)) |>
-  group_by(rgnpob, pob, sex) |>
+  group_by(rgnpob, pob, attend) |>
   summarise(total = n()) |>
-  pivot_wider(names_from = sex, values_from = total, values_fill = 0) |>
+  pivot_wider(names_from = attend, values_from = total, values_fill = 0) |>
   adorn_totals("col")
 
 outputall <- output |>
   group_by(pob) |>
-  summarise(female = sum(female), male = sum(male), `not stated` = sum(`not stated`)) |>
+  summarise(`1` = sum(`1`), `2` = sum(`2`), `3` = sum(`3`), `4` = sum(`4`), `5` = sum(`5`)) |>
   mutate(rgnpob = "all") |>
-  select(rgnpob, pob, female, male, `not stated`) |>
+  select(rgnpob, pob, `1`:`5`) |>
   adorn_totals(c("row", "col"))
 
 outputrgn <- output |>
   group_by(rgnpob) |>
-  summarise(female = sum(female), male = sum(male), `not stated` = sum(`not stated`)) |>
+  summarise(`1` = sum(`1`), `2` = sum(`2`), `3` = sum(`3`), `4` = sum(`4`), `5` = sum(`5`)) |>
   mutate(pob = "total") |>
-  select(rgnpob, pob, female, male, `not stated`) |>
+  select(rgnpob, pob, `1`:`5`) |>
   adorn_totals("col")
 
 output <- rbind(output, outputrgn) |>
   arrange(rgnpob)
 
-output <- rbind(toutputall, output)
+output <- rbind(outputall, output) |>
+
 
 write.csv(output, paste0("./outputs/", tablename, ".csv"), row.names = FALSE)
 return(output)

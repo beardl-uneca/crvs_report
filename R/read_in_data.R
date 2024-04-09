@@ -68,7 +68,8 @@ bth_data <- bth_data |>
     reg_delay_days %in% c(30:100) ~ "late", 
     reg_delay_days > 100 ~ "delayed",
     TRUE ~ "check"),
-    fert_age_grp = ifelse(is.na(fert_age_grp), "unknown", fert_age_grp))
+    fert_age_grp = ifelse(is.na(fert_age_grp), "unknown", fert_age_grp),
+    attend = sample(1:5, size = n(), replace = TRUE, prob = seq(1, 0.1, length.out = 5)))
     
 bth_data$gest_grp[is.na(bth_data$gestatn)] <- "not stated"
 
@@ -131,8 +132,7 @@ dth_data <- dth_data |>
     reg_delay_days < 30 ~ "current",
     reg_delay_days %in% c(30:100) ~ "late", 
     reg_delay_days > 100 ~ "delayed",
-    TRUE ~ "check"
-  ))
+    TRUE ~ "check"))
 
 
 gc()

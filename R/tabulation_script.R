@@ -76,6 +76,14 @@ t6.9 <- create_t6.5_t6.10(dth_data, sex_value = c("male"), age_group = "70+")
 
 t6.10 <- create_t6.5_t6.10(dth_data, sex_value = c("female"), age_group = "70+")
 
+t7.2 <- create_t7.2_and_7.3(marr_data, data_year = 2020, ruindicator = "urban", tablename = "Table_7_1")
+
+t7.3 <- create_t7.2_and_7.3(marr_data, data_year = 2020, ruindicator = "rural", tablename = "Table_7_2")
+
+t7.4 <- create_table_7.4_and_7.5(marr_data, data_year = 2020, groombride = "groom", tablename = "Table_7_4")
+
+t7.5 <- create_table_7.4_and_7.5(marr_data, data_year = 2020, groombride = "bride", tablename = "Table_7_5")
+
 t8.1 <- create_t8.1(tablename = "Table _8_1")
 
 t8.2 <- create_t8.2(data_year = 2022, tablename = "Table_8_2")

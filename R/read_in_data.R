@@ -168,5 +168,51 @@ rm(nspl)
 
 
 cause <- read.csv("./data/causes.csv")
+
+marr_data <- read.csv("./data/marriages.csv") |>
+  mutate(g_age_grp = derive_age_groups(agegs,
+                                       start_age = 15, max_band = 75,
+                                       step_size = 5, under_1 = FALSE),
+         b_age_grp = derive_age_groups(agebs,
+                                       start_age = 15, max_band = 75,
+                                       step_size = 5, under_1 = FALSE),
+         marcongt = case_when(
+           marcong == 1 ~ "single",
+           marcong %in% c(2,3) ~ "married",
+           marcong %in% c(4,5) ~ "widowed",
+           marcong %in% c(7, 9) ~ "other unions",
+           marcong %in% c(6, 10) ~ "separated",
+           marcong %in% c(11, 12) ~ "divorced",
+         TRUE ~ "not stated"),
+         marconbt = case_when(
+           marconb == 1 ~ "single",
+           marconb %in% c(2,3) ~ "married",
+           marconb %in% c(4,5) ~ "widowed",
+           marconb %in% c(7, 9) ~ "other unions",
+           marconb %in% c(6, 10) ~ "separated",
+           marconb %in% c(11, 12) ~ "divorced",
+           TRUE ~ "not stated"))
+
+div_data <- read.csv("./data/divorces.csv") |>
+  mutate(dom = lubridate::ymd(dom), 
+         doda = lubridate::ymd(doda),
+         age_w = derive_age_groups(agedaw_yp,
+                                       start_age = 15, max_band = 75,
+                                       step_size = 5, under_1 = FALSE),
+         age_h = derive_age_groups(agedah_op,
+                                       start_age = 15, max_band = 75,
+                                       step_size = 5, under_1 = FALSE)) |>
+  mutate(durmarr = floor(interval(dom, doda )/years(1))) |>
+  mutate(dur_grp = case_when(
+    durmarr == 0 ~ "<1",
+    durmarr %in% c(1:9) ~ as.character(durmarr),
+    durmarr %in% c(10:14) ~ "10-14",
+    durmarr %in% c(15:19) ~ "15-19",
+    durmarr %in% c(20:24) ~ "20-24",
+    durmarr %in% c(25:29) ~ "25-29",
+    durmarr > 29 ~ "30+",
+    TRUE ~ "not stated"))
+  
+  
 gc()
 # adjusted counts = registered count / completeness

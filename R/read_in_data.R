@@ -193,6 +193,7 @@ marr_data <- read.csv("./data/marriages.csv") |>
            marconb %in% c(11, 12) ~ "divorced",
            TRUE ~ "not stated"))
 
+set.seed(12)
 div_data <- read.csv("./data/divorces.csv") |>
   mutate(dom = lubridate::ymd(dom), 
          doda = lubridate::ymd(doda),
@@ -212,7 +213,11 @@ div_data <- read.csv("./data/divorces.csv") |>
     durmarr %in% c(25:29) ~ "25-29",
     durmarr > 29 ~ "30+",
     TRUE ~ "not stated"))
-  
+
+r_count = nrow(div_data)
+div_data <- div_data |>
+  mutate(child = sample(c(0:9), replace = TRUE, size = r_count,
+                       prob = c(0.4, 0.3, 0.1, 0.05, 0.05, 0.03, 0.02, 0.02, 0.02, 0.01)))
   
 gc()
 # adjusted counts = registered count / completeness

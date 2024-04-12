@@ -1,6 +1,6 @@
 
 
-t3.1 <- create_t3.1(data = bth_data, dth_data)
+t3.1 <- create_t3.1(bth_data, dth_data)
 
 t3.2 <- create_t3.2_t3.3(data = bth_data, occ_var = dobyr,
                          topic = "births", tablename = "Table_3_2")
@@ -8,14 +8,14 @@ t3.2 <- create_t3.2_t3.3(data = bth_data, occ_var = dobyr,
 t3.3 <- create_t3.2_t3.3(data = dth_data, occ_var = dodyr,
                          topic = "deaths", tablename = "Table_3_3")
 
-t3.4 <- create_t3.4_to_3.7(data = bth_data, bth_est, dobyr,
+t3.4 <- create_t3.4_and_3.6(data = bth_data, bth_est, dobyr,
                            topic = "births", tablename = "Table_3_4")
 
 t3.5 <- create_t3.5_and_3.7(data = bth_data, est_data = bth_est,
                             date_var = dobyr, data_year = 2022,
                             topic = "births", tablename = "Table_3_5")
 
-t3.6 <- create_t3.4_to_3.7(data = bth_data, est_data = bth_est,
+t3.6 <- create_t3.4_and_3.6(data = bth_data, est_data = bth_est,
                            date_var = dobyr, data_year = 2022,
                            topic = "births", tablename = "Table_3_6")
 
@@ -23,13 +23,13 @@ t3.7 <- create_t3.5_and_3.7(data = dth_data, est_data = dth_est,
                             date_var = dodyr, data_year = 2022,
                             topic = "deaths", tablename = "Table_3_7")
 
-t3.8 <- create_t3.8_t3.9(data = bth_data, est_data = bth_est,
-                         date_var = rgn, data_year = 2022,
-                         topic = "births", tablename = "Table_3_8")
+t3.8 <- create_t3.8_and_t3.9(data = bth_data, est_data = bth_est,
+                             date_var = dobyr, data_year = 2022, by_var = rgn,
+                             topic = "births", tablename = "Table_3_8")
 
-t3.9 <- create_t3.8_t3.9(data = dth_data, est_data = dth_est,
-                         date_var = rgn, data_year = 2022,
-                         topic = "deaths", tablename = "Table_3_9")
+t3.9 <- create_t3.8_and_t3.9(data = dth_data, est_data = dth_est,
+                             date_var = dodyr, data_year = 2022, by_var = rgn,
+                             topic = "deaths", tablename = "Table_3_9")
 
 t3.10 <- create_t3.10(data = dth_data, date_var = dodyr, data_year = 2022,
                       tablename = "Table_3_10")
@@ -42,10 +42,10 @@ t3.12 <- create_t3.11_and_3.12(dth_data, dodyr, data_year = 2022,
                                by_var = age_grp_80, tablename = "Table_3_12",
                                topic = "deaths")
 
-t4.1 <- create_t4.1(data = bth_data, tablename = "Table_4_1")
+t4.1 <- create_t4.1(data = bth_data, date_var = dobyr, tablename = "Table_4_1")
 
-t4.2 <- create_t4.2(data = bth_data, est_data = bth_est, data_year = 2022,
-                    tablename = "Table_4_2")
+t4.2 <- create_t4.2(data = bth_data, est_data = bth_est, date_var = dobyr,
+                    data_year = 2022, tablename = "Table_4_2")
 
 t4.3 <- create_t4.3(data = bth_data, dobyr, 2022)
 
@@ -61,13 +61,20 @@ t4.6 <- create_t4.4_to_4_6(data = bth_data, year = 2022, col_var = fert_age_grp,
                            by_var = bthimar, rural_urban = "rural",
                            tablename = "Table_4_6")
 
-t4.7 <- create_t4.7(data = bth_data, date_var = doby, data_year = 2022,
+t4.7 <- create_t4.7(data = bth_data, date_var = dobyr, data_year = 2022,
                     tablename = "Table_4_7")
 
 t4.8 <- create_t4.8(data = bth_data, bth_est, dobyr, data_year = 2022,
                     by_var = rgn, tablename = "Table_4_8")
 
-t5.1 <- create_t5.1(data = dth_data, tablename = "Table_5_1")
+
+t4.9 <- create_table_4_9_and_4_10(data = bth_data, est_data = bth_est, data_year = 2022,
+                                  ruindicator = "urban", tablename = "Table_4_9")
+
+t4.10 <- create_table_4_9_and_4_10(data = bth_data, est_data = bth_est, data_year = 2022,
+                                   ruindicator = "rural", tablename = "Table_4_10")
+
+#### t5.1 <- create_t5.1(data = dth_data, tablename = "Table_5_1") ####
 
 t5.3 <- create_t5.3_and_t5.4(data = dth_data, dodyr, 2022, sex_filter = "male",
                              tablename = "Table_5_3")
@@ -75,7 +82,7 @@ t5.3 <- create_t5.3_and_t5.4(data = dth_data, dodyr, 2022, sex_filter = "male",
 t5.4 <- create_t5.3_and_t5.4(data = dth_data, dodyr, 2022, sex_filter = "female",
                              tablename = "Table_5_4")
 
-t5.5 <- create_t5_5a(data = dth_data, date_var = dodyr, data_year = 2022,
+t5.5 <- create_t5_5(data = dth_data, date_var = dodyr, data_year = 2022,
                      tablename = "Table_5_5")
 
 t5.6 <- create_t5.6_and_t5.7(data = dth_data, ru_filter = "urban",

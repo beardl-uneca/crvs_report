@@ -145,7 +145,7 @@ dth_data <- dth_data |>
 gc()
 
 pops <- read.csv("./data/population.csv")
-nspl <- read.csv("./data/NSPL21_FEB_2024_UK.csv") |>
+nspl <- read.csv("./data/NSPL_FEB_2024_UK.csv") |>
   distinct(cty, laua, rgn)
 
 pops <- merge(pops, nspl, by.x = "ladcode21", by.y = "laua", all.x = TRUE) |>

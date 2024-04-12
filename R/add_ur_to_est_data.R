@@ -40,7 +40,9 @@ output <- bth_data |>
       count %in% c(9000:9499) ~ ceiling(count/9500) * 9500,      
       count %in% c(9500:9999) ~ ceiling(count/10000) * 10000, 
       count %in% c(10000:14999) ~ ceiling(count/15000) * 15000,       
-      count %in% c(15000:19999) ~ ceiling(count/20000) * 20000))|>
+      count %in% c(15000:19999) ~ ceiling(count/20000) * 20000, 
+      count %in% c(20000:24999) ~ ceiling(count/25000) * 25000,       
+      count %in% c(25000:29999) ~ ceiling(count/30000) * 30000))|>
     select(-count) |>
     rename(count = count2) |>
     pivot_wider(names_from = sex, values_from = count, values_fill = 0) |>

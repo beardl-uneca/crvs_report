@@ -1,0 +1,1469 @@
+---
+title: 'Production of a Vital Statistics Report: Template'
+output: 
+word_document:
+  reference_docx: 
+  
+date: '2024-04-24'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+Vital Strategies, United Nations Economic Commission for Africa, United Nations Economic and Social Commission for Asia and the Pacific, and Statistics Norway (2020). Production of a Vital Statistics Report: Template. NY, Vital Strategies. 
+## Instructions – please read these pages carefully and delete once the template has been finalised
+For detailed instructions on how to use this template, refer to the ‘Production of a Vital Statistics Report: Guide’ (2020), available at the [resource website](https://www.vitalstrategies.org/vital-statistics-report-production).
+
+This template was developed as a practical tool for national authorities responsible for producing vital statistics reports from civil registration systems, primarily those in developing countries with little experience in this area. These authorities vary from country to country depending on the institutional responsibilities provided by the country’s legal framework for civil registration and vital statistics (CRVS), as well as its existing administrative and organisational structures. In most countries, the responsibility to produce a vital statistics report rests with the national statistical office. In some countries, the civil registration office produces statistics pertaining to birth and death events, whereas in others, the ministry of health is responsible for the production of statistics on deaths and cause of death. Irrespective of the model adopted, it is important that all involved agencies collaborate in the production of the national vital statistics report. 
+CRVS systems vary between countries. It is therefore difficult to make a template that suits all countries. Responsible authorities need to adjust the template to the context of their CRVS system and conditions in their own countries. Given that there are numerous detailed manuals and recommendations on vital statistics, this template is intended mainly for countries with limited data availability and resources. More advanced options have also been included for countries where this is feasible. 
+
+
+General instructions:
+
+	Sections that need updating with country data are currently shown in \textcolor{grey text}-{grey}. To update, simply click anywhere in the grey text and start typing—noting that this will automatically delete the example text.
+
+	General instructions, and optional sections, tables and figures are indicated with \textcolout{*red italicised text*}-{red}. After reading the instructions and updating or deleting the optional sections, remember to delete the text boxes with the \textcolout{*red italicised text*}-{red}. To do this, click anywhere on the text; then click on the three dots that appear to the left of the text box. Once the text box is highlighted, press either ‘delete’ or ‘backspace’ on the keyboard.
+
+	There are eight optional sections and several optional tables and figures in the Template. While countries are encouraged to complete as many of the sections as possible, some of them require additional data that may not be available. The optional sections are:
+	3.2 – timeliness of registration
+	3.4 – data adjustment and redistribution
+	4.8 – other fertility indicators
+	5.9 – life expectancy
+	5.10 – foetal deaths
+	5.11 – other mortality indicators
+	6.4 – other cause-specific mortality indicators
+	7.0 – marriages and divorces
+
+	There is an associated Excel Workbook with pre-populated graphs that can be modified and copied into the Template, which is available at the resource website. The workbook also contains working examples on data adjustment, data redistribution, a life table and age standardisation.
+
+	It is strongly recommended that all rates and ratios be calculated using the adjusted number of events (births or deaths), to account for incomplete registration. Note that if registration for births or deaths is lower than around 50%, the adjusted numbers are likely to be of very poor quality and should be interpreted with caution.
+
+	If data are very incomplete, or the total number of vital events is small (due to small population sizes), aggregating data over three or five years (rather than providing single-year data) is also recommended. A good way to check if aggregation is needed is to look at graphs of vital events using single-year data over time (for example, the crude birth or death rate). If there are large variations in the data year-on-year, this is likely a result of random (or stochastic) variation, caused by small/uncertain values, and data should be aggregated to help smooth these random effects.
+
+	Any questions or comments on the template should be directed to fmalik@vitalstrategies.org 
+
+
+This template is based on the United Nations Principles and Recommendations for a Vital Statistics System, Revision 3 (2014)  and has used the following definitions for key variables:
+	The date of occurrence is the exact date when the event occurred, and should be expressed in terms of day, month and year. Total numbers of registered live births, deaths, foetal deaths, marriages and divorces should be based on date of occurrence, which is the recommended basis for the time reference of all vital statistics tabulations.
+	The date of registration of a vital event is the day, month and year when the entry in the civil registration system was made. The time of day, i.e., hour and minutes, may also be recorded if required by the registration law.
+	Place of occurrence is the geographical location in the country: (a) locality and (b) major division or other geographical place in which the locality is situated, where the live birth, death, delivery of a dead foetus, marriage or divorce occurred. Counts of the numbers of vital events by place of occurrence are useful for the planning and evaluation of various medical, health and social programmes. For example, data on the number of live births or deaths by place of occurrence are useful in the planning and evaluation of medical facilities and manpower, and in monitoring the workload and performance of the civil registration system in each civil division.
+	Place of registration is the geographical location in the country: (a) locality and (b) major civil division or other geographical place, where the live birth, death, delivery of a dead foetus, marriage or divorce is registered in the civil registration system. This information should be provided in enough detail to enable each specific registration office to be identified for a variety of administrative purposes, including backtracking for clarification of registration and statistical reporting problems, for local registration office workload analyses, and for optimal geographical distribution of registration points with reasonable proximity to where vital events are occurring.
+	Place of usual residence is the geographical location in the country, locality or civil division, or foreign country, where the specified person usually resides. This need not be the same as either the place where he or she was found at the time of the occurrence of the event or inquiry, or his or her legal residence. For vital statistics purposes, the place of usual residence of a live birth, a foetal death or an infant death is the place where the mother usually resides. Most tables and graphs should be based on the place of usual residence.
+	Urban and rural is a derived topic of high priority in a vital statistics system which is based on geographical information obtained from place of occurrence and place of usual residence. Because of national differences in the characteristics that distinguish urban from rural areas, the distinction between the urban and rural populations is not yet amenable to a single definition that would be applicable to all countries or, for the most part, even to the countries within a region. Where there are no regional recommendations on the matter, countries must establish their own definitions in accordance with their own needs. Most countries base their definition of urban and rural on administrative areas, while a few countries use population density as the basis.
+
+
+ 
+Table of contents
+Table of contents	6
+List of tables	7
+List of figures	9
+Preface	10
+Acknowledgements	11
+Acronyms and abbreviations	12
+Definitions	13
+Executive summary	15
+Births	15
+Deaths	15
+Leading causes of death	16
+Marriages and divorces	17
+Chapter 1.	Introduction and methodology	18
+1.1	Introduction	18
+1.2	Data sources and methodology	18
+Chapter 2.	The civil registration system	19
+2.1	History	19
+2.2	Legal and administrative issues	19
+2.3	Organisational structure, registration processes and information flows	19
+2.4	Organisation of vital statistics production and dissemination	20
+2.5	Incentives and disincentives for registration	20
+Chapter 3.	Data quality, timeliness of registration, and registration completeness	21
+3.1	Data quality	21
+3.2	Timeliness of registration	21
+3.3	Completeness of registration	23
+3.4	Data adjustment and redistribution	24
+Chapter 4.	Births	28
+4.1	Births by place of occurrence	28
+4.2	Births by place of occurrence and place of usual residence of mother	29
+4.3	Births by age of mother	29
+4.4	Births by site of delivery	31
+4.5	Crude birth rate	32
+4.6	Age-specific fertility rates	32
+4.7	Total fertility rate	34
+Chapter 5.	Deaths	35
+5.1	Deaths by place of usual residence and sex of decedent	35
+5.2	Deaths by place of occurrence, place of usual residence, and sex of decedent	36
+5.3	Deaths by place and site of occurrence	37
+5.4	Deaths by place of usual residence, age and sex of decedent	37
+5.5	Crude death rate	39
+5.6	Age-specific mortality rates	40
+5.7	Infant and child mortality	40
+5.8	Maternal mortality	41
+5.9	Life expectancy	41
+5.10	Foetal deaths	42
+Chapter 6.	Causes of death	43
+6.1	Deaths by broad cause of death group	43
+6.2	Top 10 causes of death	44
+6.3	Leading causes of death by age and sex	45
+Chapter 7.	Marriages and divorces	50
+7.1	Marriages	50
+7.2	Divorces	53
+Chapter 8.	Summary tables	58
+Annexes	60
+
+List of tables
+Table 3.1 Number of vital events by registration timeliness, year	21
+Table 3.2 Proportion (%) of births by year of registration and year of occurrence	22
+Table 3.3 Proportion (%) of deaths by year of registration and year of occurrence	22
+Table 3.4 Birth registration completeness by year of occurrence and sex of newborn	23
+Table 3.5 Birth registration completeness by place of usual residence of mother and sex of newborn, year	23
+Table 3.6 Death registration completeness by year of occurrence and sex of decedent	24
+Table 3.7 Death registration completeness by place of usual residence and sex of decedent, year	24
+Table 3.8 Adjustment of births by place of usual residence of mother and sex of newborn, year	25
+Table 3.9 Adjustment of deaths by place of usual residence and sex of decedent, year	25
+Table 3.10 Adjustment of deaths by age group and sex of decedent, year	25
+Table 3.11 Redistribution of births with incomplete data on ‘age of mother’, year	26
+Table 3.12 Redistribution of deaths with incomplete data on ‘age of decedent’, year	26
+Table 4.1 Summary statistics on fertility by year of occurrence	28
+Table 4.2 Live births by place of occurrence and sex of newborn, year	28
+Table 4.3 Live births by place of occurrence and place of usual residence of mother,  year	29
+Table 4.4 Live births by age of mother and type of birth, year	29
+Table 4.5 Live births by age and marital status of mother, urban areas, year	30
+Table 4.6 Live births by age and marital status of mother, rural areas, year	30
+Table 4.7 Live births by place of occurrence, site of delivery and attendant at birth, year	31
+Table 4.8 Crude birth rate (CBR) by place of usual residence of mother, year	32
+Table 4.9 Age-specific fertility rates by usual residence of mother, urban areas, year	33
+Table 4.10 Age-specific fertility rates by usual residence of mother, rural areas, year	33
+Table 4.11 Total fertility rate (TFR) by usual residence of mother, year	34
+Table 5.1 Summary statistics on mortality by year of occurrence	35
+Table 5.2 Deaths by place of usual residence and sex of decedent, year	35
+Table 5.3 Deaths by place of occurrence and place of usual residence of decedent, males, year	36
+Table 5.4 Deaths by place of occurrence and place of usual residence of decedent, females, year	36
+Table 5.5 Deaths by place of occurrence and site of occurrence, year	37
+Table 5.6 Deaths by age and sex of decedent, urban areas, year	37
+Table 5.7 Deaths by age and sex of decedent, rural areas, year	38
+Table 5.8 Crude death rate (CDR) by place of usual residence of decedent, year	39
+Table 5.9 Infant and child mortality (deaths per 1,000 live births) by year of occurrence	40
+Table 5.10 Maternal mortality by year of occurrence	41
+Table 5.11 Foetal deaths by year of occurrence and sex of foetus	42
+Table 5.12 Foetal deaths by gestational age and birth weight of foetus, year	42
+Table 6.1 Leading causes of death by broad age group and sex, year	43
+Table 6.2 Top 10 causes of death (all ages, both sexes), year	44
+Table 6.3 Ten leading causes of death, males, year	45
+Table 6.4 Ten leading causes of death, females, year	45
+Table 6.5 Ten leading causes of death, infants and children (0–4 years, both sexes combined), year	46
+Table 6.6 Ten leading causes of death, children (5–14 years, both sexes combined), year	46
+Table 6.7 Ten leading causes of death, adolescents and adults (15–69 years, males), year	47
+Table 6.8 Ten leading causes of death, adolescents and adults (15–69 years, females), year	47
+Table 6.9 Ten leading causes of death, older adults (70+ years, males), year	48
+Table 6.10 Ten leading causes of death, older adults (70+ years, females), year	49
+Table 7.1 Summary statistics on marriages and divorces by year of occurrence	50
+Table 7.2 Marriages by place of usual residence of groom and age of bride and groom, urban areas, year	51
+Table 7.3 Marriages by place of usual residence of groom and age of bride and groom, rural areas, year	51
+Table 7.4 Marriages by age of groom and previous marital status, year	52
+Table 7.5 Marriages by age of bride and previous marital status, year	53
+Table 7.6 Divorces by age of husband and age of wife, year	54
+Table 7.7 Divorces by duration of marriage and age of husband, year	55
+Table 7.8 Divorces by duration of marriage and age of wife, year	55
+Table 7.9 Divorces by duration of marriage and number of dependent children, year	56
+Table 8.1 Live births, deaths, and infant and child deaths by year of occurrence	58
+Table 8.2 Live births, deaths, and infant and child deaths by place of usual residence of mother (births) or decedent (deaths), year	58
+Table 8.3 Fertility and mortality indicators by year of occurrence	58
+Table 8.4 Fertility and mortality indicators by place of usual residence of mother (births and infant deaths) or decedent (other deaths), year	58
+Table 8.5 Marriage and divorce indicators by year of occurrence	59
+
+List of figures
+Figure 3.1 Proportion (%) of live births and deaths by registration timeliness	21
+Figure 4.1 Live births by year of occurrence	29
+Figure 4.2 Live births by age of mother, year	31
+Figure 4.3 Crude birth rate by year of occurrence	32
+Figure 4.4 Age-specific fertility rates (ASFRs) by year of occurrence of birth	34
+Figure 4.5 Total fertility rate by year of occurrence of birth	34
+Figure 5.1 Deaths by year of occurrence	36
+Figure 5.2 Deaths by sex and age of decedent, year	39
+Figure 5.3 Crude death rate by sex and year of occurrence of death	39
+Figure 5.4 Age-specific mortality rates by sex, year	40
+Figure 5.5 Life expectancy at birth by sex and year of occurrence	41
+Figure 6.1 Deaths by broad group, including ill-defined codes, year	44
+Figure 6.2 Deaths by broad disease group and age, males, year	44
+Figure 6.3 Deaths by broad disease group and age, females, year	44
+Figure 7.1 Marriages by year of occurrence	50
+Figure 7.2 Average age at first marriage by sex and year of occurrence	52
+Figure 7.3 Divorces by year of occurrence	53
+Figure 7.4 Average age at divorce by sex and year of occurrence	54
+Figure 7.5 Age-specific divorce rate by sex and year of occurrence	54
+Figure 7.6 Divorces by duration of marriage and year of occurrence	56
+
+ 
+Preface
+ENTER TEXT HERE. A preface is usually a short introduction to the report, explaining why and for whom it was prepared and who contributed. It may be signed by a high-ranking officer, such as the Minister or Permanent Secretary of the Ministry under which the main contributing institution is placed, the Director General of the main contributing institution and/or the head of the department writing the report, depending on the traditions of the institutions in the country. 
+It should briefly cover such things as:
+•	Aim of report
+•	Who the report was prepared for
+•	Who collected the data and who compiled it
+•	Scope and coverage of publication 
+•	Use of the report
+ 
+Acknowledgements
+ENTER TEXT HERE. All parties that contributed to the vital statistics report should be mentioned here. This includes those who contributed financially and those who provided input and suggestions.
+
+ 
+Acronyms and abbreviations
+All acronyms and abbreviations used in the report should be listed, especially country-specific terms. Update the list below and then delete this text box by clicking on the three dots to the left of the box and pressing ‘delete’ on the keyboard.
+ASFR	Age-specific fertility rate
+ASMR	Age-specific mortality rate
+CBR	Crude birth rate
+CDR	Crude death rate
+CRVS	Civil registration and vital statistics
+CSMF	Cause-specific mortality fraction
+D4H	Bloomberg Philanthropies Data for Health Initiative
+DHS	Demographic and Health Survey
+ECA	(United Nations) Economic Commission for Africa
+ESCAP	(United Nations) Economic and Social Commission for Asia and the Pacific
+IMR	Infant mortality rate
+MMR	Maternal mortality ratio
+MCCD	Medical certification of cause of death
+NMR	Neonatal mortality rate
+TFR	Total fertility rate
+UN	United Nations
+US CDC	United States Centers for Disease Control and Prevention 
+U5MR	Under-5 mortality rate
+VA	Verbal autopsy
+VS	Vital statistics
+WHO	World Health Organization
+
+
+ 
+Definitions
+It is useful to include a list of definitions used in the report, especially for terms with varying definitions internationally, or any terms that are country-specified. Update the list below, including any country-specific definitions used and then delete this text box by clicking on the three dots to the left of the box and pressing ‘delete’ on the keyboard.
+Age-specific fertility rate (ASFR): The annual number of births to women of a particular age group per 1,000 women in that age group.
+Age-specific mortality rate (ASMR): A mortality rate limited to a particular age group. The numerator is the number of deaths in that age group; the denominator is the number of persons in that age group in the population.
+Cause of death: ‘All those diseases, morbid conditions or injuries which either resulted in or contributed to death and the circumstances of the accident or violence which produced any such injuries’.  Symptoms and modes of dying, such as heart failure or respiratory failure, are not considered to be causes of death for statistical purposes (see ‘ill-defined cause of death’).
+Completeness of registration: The proportion of vital events that are registered. It is the number of registered vital events divided by an estimate of the actual number of vital events that occurred in the same population during a specific period of time.
+Crude birth rate (CBR): The number of live births relative to the size of that population during a given period, usually one year. It is expressed as the number of live births per 1,000 population per year.
+Crude death rate (CDR): The number of deaths relative to the size of that population during a given period, usually one year. It is expressed as the number of deaths per 1,000 population per year.
+Death: The permanent disappearance of all evidence of life at any time after live birth has taken place (postnatal cessation of vital functions without capability of resuscitation). This definition excludes foetal deaths, which are defined separately.
+Foetal death (also referred to as ‘stillbirth’): ‘Death prior to the complete expulsion or extraction from the mother of a product of conception, irrespective of the duration of pregnancy; the death is indicated by the fact that after such separation the foetus does not breathe or show any other evidence of life, such as beating of the heart, pulsation of the umbilical cord or definite movement of voluntary muscles.’  Note that this definition broadly includes all terminations of pregnancy other than live births, as defined above.
+Ill-defined cause of death: Any code that cannot or should not be used for the underlying cause of death (generally referring to ‘R codes’). For instance, a ‘mode of death’ such as heart failure or kidney failure, symptoms such as back pain or depression, and risk factors such as high blood pressure are all uninformative, ill-defined codes for public health purposes. 
+Infant mortality rate (IMR): Probability (expressed as a rate per 1,000 live births) of a child born in a specific year or period dying before reaching the age of 1, if subject to age-specific mortality rates of that period.
+Life expectancy at birth: The average number of years that a newborn could expect to live, if he or she were to pass through life exposed to the sex- and age-specific death rates prevailing at the time of his or her birth, for a specific year, in a given country, territory, or geographic area.
+Live birth: ‘The complete expulsion or extraction from the mother of a product of conception, irrespective of the duration of pregnancy, which, after such separation, breathes or shows any other evidence of life, such as beating of the heart, pulsation of the umbilical cord, or definite movement of voluntary muscles, whether or not the umbilical cord has been cut or the placenta is attached; each product of such a birth is considered live born (all live-born infants should be registered and counted as such, irrespective of gestational age or whether alive or dead at the time of registration, and if they die at any time following birth, they should also be registered and counted as deaths).’ 
+Maternal death: ‘The death of a woman while pregnant or within 42 days of termination of pregnancy, irrespective of the duration and site of the pregnancy, from any cause related to or aggravated by the pregnancy or its management but not from accidental or incidental causes.’ 
+Maternal mortality ratio (MMR): The number of maternal deaths during a given time period per 100,000 live births during the same time period.
+Neonatal mortality rate (NMR): Probability (expressed as a rate per 1,000 live births) of a child born in a specific year or period dying in the first 30 days of life, if subject to age-specific mortality rates of that period.
+Sex ratio at birth: The number of male births for a specific area and during a specified period divided by the number of female births for the same area and period. The sex ratio is an important demographic indicator of the distribution of boys and girls at birth.
+Total fertility rate (TFR): The sum of age-specific fertility rates for females aged between 15 and 49 years during a specified period, usually one year. It is an estimate of the average number of children a cohort of women would bear if they went through their childbearing years experiencing the same age-specific fertility rates.
+Under-5 mortality rate (U5MR): The probability of a child born in a specific year or period dying before reaching the age of 5, if subject to age-specific mortality rates of that period. The under-5 mortality rate as defined here is strictly speaking not a rate (i.e. the number of deaths divided by the number of population at risk during a certain period of time) but a probability of death derived from a life table and expressed as rate per 1,000 live births.
+Underlying cause of death: The cause of death to be used for primary statistical tabulation purposes has been designated as the underlying cause of death. The underlying cause of death is defined as ‘(a) the disease or injury which initiated the train of events leading directly to death, or (b) the circumstances of the accident or violence which produced the fatal injury.’ 
+Executive summary
+ENTER TEXT HERE. Include one or two paragraphs that summarise key findings as they relate to the main chapters of the report. Also note what year (or years) of data the report refers to, and any major data quality concerns including the level of birth and death registration completeness.
+
+Births
+ENTER TEXT HERE. Copy the summary paragraph from the beginning of Chapter 4.
+Summary statistics on fertility by year of occurrence
+Indicator	Year 1	Year 2	Year 3	Year …	Most recent
+Registered live births (number)					
+Males					
+Females					
+Registration completeness (%)					
+Males					
+Females					
+Sex ratio at birth					
+Crude birth rate (per 1,000 population)					
+Total fertility rate (births per woman)					
+
+Deaths
+ENTER TEXT HERE. Copy the summary paragraph from the beginning of Chapter 5.
+Summary statistics on mortality by year of occurrence
+Indicator	Year 1	Year 2	Year 3	Year …	Most recent
+Registered deaths (number)					
+Males					
+Females					
+Registration completeness (%)					
+Males					
+Females					
+Crude death rate (per 1,000 population)					
+Life expectancy at birth (years)					
+Males					
+Females					
+Under-5 mortality rate (per 1,000 live births)					
+Maternal mortality ratio (per 100,000 live births)					
+
+Leading causes of death
+ENTER TEXT HERE. Copy the summary paragraph from the beginning of Chapter 6. If data are available by age group and sex, use the first table. If data are not available by age group and sex (or are of poor quality), delete the first table and use the second—which shows the top 10 causes of death for all ages and both sexes.
+Leading causes of death by broad age group and sex, year
+	 	Males 	 	Females
+<5 years	 	1		 	1	
+	 	2		 	2	
+	 	3		 	3	
+	 	4		 	4	
+	 	5		 	5	
+						
+5–14 years	 	1		 	1	
+	 	2		 	2	
+	 	3		 	3	
+	 	4		 	4	
+	 	5		 	5	
+						
+15–69 years		1			1	
+		2			2	
+		3			3	
+		4			4	
+		5			5	
+						
+70+ years		1			1	
+		2			2	
+		3			3	
+		4			4	
+		5			5	
+
+THIS TABLE IS OPTIONAL. Only use it if data on cause of death by age group and sex are unavailable or of poor quality.
+Top 10 causes of death (all ages, both sexes), year
+Rank	Year …	Most recent year
+1		
+2		
+3		
+4		
+5		
+6		
+7		
+8		
+9		
+10		
+
+Marriages and divorces
+ENTER YOUR TEXT HERE. Copy the summary paragraph from the beginning of Chapter 7.
+Summary statistics on marriages and divorces by year of occurrence
+Indicator	Year 1	Year 2	Year 3	Year …	Most recent
+Number of registered marriages					
+Crude marriage rate (per 1,000 population)					
+Average age at first marriage					
+Males					
+Females					
+Number of registered divorces					
+Crude divorce rate (per 1,000 population)					
+Males					
+Females					
+Average age at divorce					
+Males					
+Females					
+
+ 
+Introduction and methodology
+1.1	Introduction
+ENTER TEXT HERE. This chapter should provide information on the objectives of the vital statistics report, including the rationale for producing the report and who the intended audience is. The content of each chapter of the report should also be described. Other important topics may include what vital statistics are and why they are important; the practical applications of vital statistics; general information about this report (is it the first one, what years does it cover, who wrote it, why is it important); and the focus/objective of the report.
+The objectives of this report are to:
+	Click or tap here to enter text.
+
+The report is organised in the following main chapters:
+	Chapter 2 ENTER TEXT HERE. Describe the content of the chapter.
+	Chapter 3 ENTER TEXT HERE. Describe the content of the chapter.
+	Chapter 4 ENTER TEXT HERE. Describe the content of the chapter.
+	Chapter 5 ENTER TEXT HERE. Describe the content of the chapter.
+	Chapter 6 ENTER TEXT HERE. Describe the content of the chapter.
+	Chapter 7 ENTER TEXT HERE. Describe the content of the chapter.
+
+1.2	Data sources and methodology
+ENTER TEXT HERE. Describe the data sources used in the report, including sources that are external to the CRVS system (such as the census or a survey). Describe how the analysis was conducted, including software and methods. Also mention any major limitations of the data.
+
+ 
+The civil registration system
+2.1	History
+ENTER TEXT HERE. It is useful for the audience to learn about the history of the CRVS system and production of vital statistics. Refer to Chapter 2, page 20 of the Guide for instructions and examples of what to include in this section.
+
+2.2	Legal and administrative issues
+ENTER TEXT HERE. As countries have very different legal and administrative systems, it is important to briefly mention them here, as they relate to the registration of vital events and production of vital statistics. Refer to Chapter 2, page 20 of the Guide for instructions and examples of what to include in this section.
+
+2.3	Organisational structure, registration processes and information flows
+ENTER TEXT HERE. The processes and information flows within the CRVS system should be described. If there are diagrams showing the flow of information through the system, include them here. Refer to Chapter 2, page 24 of the Guide for instructions and examples of what to include in this section.
+
+2.3.1	Late or delayed registration
+ENTER TEXT HERE. Describe the legal timelines that define a ‘late’ or ‘delayed’ registration. Also comment if any penalties (fees) are imposed for such registrations. Refer to Chapter 2, page 26 of the Guide for instructions and examples of what to include in this section.
+
+2.3.2	Issuance of documentation
+ENTER TEXT HERE. Refer to Chapter 2, page 26 of the Guide for instructions and examples of what to include in this chapter.
+
+2.3.3	Transfer of records
+ENTER TEXT HERE. Explain how records are transferred from the local registration office to higher administrative levels. Refer to Chapter 2, page 27 of the Guide for instructions and examples of what to include in this section.
+
+
+2.4	Organisation of vital statistics production and dissemination
+ENTER TEXT HERE. Describe who is responsible for the processing and publication of vital events data. Refer to Chapter 2, page 27 of the Guide for instructions and examples of what to include in this section.
+
+2.5	Incentives and disincentives for registration
+ENTER TEXT HERE. If relevant, describe any factors that have influenced the registration of vital events in recent years. Refer to Chapter 2, page 27 of the Guide for instructions and examples of what to include in this section.
+
+ 
+Data quality, timeliness of registration, and registration completeness
+ENTER TEXT HERE. Insert a summary paragraph of key findings from this chapter. Focus on the overall quality of the data for use in policy and planning—are there any significant data quality issues? Does the report cover delayed or late registrations for each year? What are the key points regarding completeness? How complete are the data and if completeness is low, were the data adjusted?
+3.1	Data quality
+ENTER TEXT HERE. Refer to Chapter 3, page 29 of the Guide for instructions and examples of what to include in this section.
+
+SECTION 3.2 IS OPTIONAL. If data on the timeliness of registration (or extent of delayed registration) are available, present it here. The table provided is for annual data, however if a ‘late’ registration is defined as seven or 30 (or X) days after the event, update the table to match the system.
+Remember to state if the report uses only current registration data (from events occurring in that year) or includes both current and late registrations.
+3.2	Timeliness of registration
+A late registration is the registration of a vital event after the legally specified time period but within the grace period (usually one year following the vital event). Delayed registration is the registration of a vital event after the grace period has expired. ENTER TEXT HERE. Describe the tables below—has there been an improvement in timeliness of registration over time? What may have contributed to this? Also comment on if there are any major differences for births and deaths.
+Table 3.1 Number of vital events by registration timeliness, year
+Registration timeliness	Year …	Most recent
+	Live births	Deaths	Live births	Deaths
+Current 				
+Late 				
+Delayed 				
+Grand total				
+
+FIGURE 3.1 IS OPTIONAL. Insert the line graphs or bar graph from Tab F3.1 of the Excel Workbook here.
+Figure 3.1 Proportion (%) of live births and deaths by registration timeliness
+ 
+
+Table 3.2 Proportion (%) of live births by year of registration and year of occurrence
+Year of registration	Year of occurrence
+	Year 1	Year 2	Year 3	Year …	Most recent
+Year 1					
+Year 2					
+Year 3					
+Year …					
+Most recent					
+Grand total					
+
+Table 3.3 Proportion (%) of deaths by year of registration and year of occurrence
+Year of registration	Year of occurrence
+	Year 1	Year 2	Year 3	Year …	Most recent
+Year 1					
+Year 2					
+Year 3					
+Year …					
+Most recent					
+Grand total					
+
+ 
+3.3	Completeness of registration
+Calculating the completeness of registration can be used to monitor the performance of the CRVS system in capturing all vital events and allows for adjustment of incomplete data. Completeness is defined as the number of vital events in a population that are registered, divided by the estimated number of vital events that occurred in the same year. The value is multiplied by 100 to express completeness as a per cent:
+Completeness (%)=  (Number of vital events registered)/(Estimated number of vital events)  ×100
+3.3.1	Birth registration
+ENTER TEXT HERE. Describe how completeness was calculated (where was the ‘estimated number of births’ sourced from) and whether any adjustments were subsequently made to future calculations. Discuss if there have been significant changes/improvements over time. Also note any major differences between males and females (if data is available). If data by sex are not available, just present the data for ‘total’ births.
+Table 3.4 Birth registration completeness by year of occurrence and sex of newborn
+Year of occurrence	Registered live births	Estimated total live births	Completeness (%)
+	Male	Female	Total	Male	Female	Total	Male	Female	Total
+Year 1									
+Year 2									
+Year 3									
+Year …									
+Most recent									
+Grand total									
+Note: estimated total births were sourced from Click or tap here to enter text.
+
+ENTER TEXT HERE. If data are available, note whether there was any difference in reporting completeness by geographic region. Also note any major differences between males and females (if data are available). If data by sex is not available, just present the data for ‘total’ births.
+Table 3.5 Birth registration completeness by place of usual residence of mother and sex of newborn, year
+Place of usual residence	Registered live births	Estimated total live births	Completeness (%)
+	Male	Female	Total	Male	Female	Total	Male	Female	Total
+Place 1									
+Place 2									
+Place 3									
+Place 4									
+Place …									
+Grand total									
+Note: estimated total births were sourced from Click or tap here to enter text.
+
+3.3.2	Death registration
+ENTER TEXT HERE. Describe how completeness was calculated and whether any adjustments were subsequently made to calculations in the report. Discuss if there have been any significant changes in completeness over time. Also note any major differences between males and females (if data is available). If data by sex are not available, just present the data for ‘total’ deaths.
+Table 3.6 Death registration completeness by year of occurrence and sex of decedent
+Year of occurrence	Registered deaths	Estimated total deaths	Completeness (%)
+	Male	Female	Total	Male	Female	Total	Male	Female	Total
+Year 1									
+Year 2									
+Year 3									
+Year …									
+Most recent									
+Grand total									
+Note: estimated total deaths were sourced from Click or tap here to enter text.
+
+ENTER TEXT HERE. If data are available, note whether there was any difference in reporting completeness by geographic region. Also note any major differences between males and females (if data are available). If data by sex are not available, just present the data for ‘total’ deaths.
+Table 3.7 Death registration completeness by place of usual residence and sex of decedent, year
+Place of usual residence	Registered deaths	Estimated total deaths	Completeness (%)
+	Male	Female	Total	Male	Female	Total	Male	Female	Total
+Place 1									
+Place 2									
+Place 3									
+Place 4									
+Place …									
+Grand total									
+Note: estimated total deaths were sourced from Click or tap here to enter text.
+
+
+SECTION 3.4 IS OPTIONAL. If the data have low registration completeness, adjustment is recommended. If the data have substantial numbers of births and deaths that are missing values, redistribution is also recommended. For more information, refer to Chapter 3, page 38 of the Guide and Tabs T3.8 and T3.11 of the Excel Workbook.
+3.4	Data adjustment and redistribution
+
+3.4.1	Adjustment for incomplete registration
+ENTER TEXT HERE. Referring to the sections above, describe here registration completeness for births and deaths by sex. If completeness is available by region, adjust the data by region. If not, adjust the data at the national level. If completeness of death registration by age (or age group) is available, adjust the death data by age. Provide a brief overview of how the data were adjusted and refer to the tables below.
+Table 3.8 Adjustment of live births by place of usual residence of mother and sex of newborn, year
+Place of usual residence	Male	Female	Total
+	Registered births	Adjusted births	Registered births	Adjusted births	Registered births	Adjusted births
+Place 1						
+Place 2						
+Place 3						
+Place 4						
+Place …						
+Grand total						
+
+Table 3.9 Adjustment of deaths by place of usual residence and sex of decedent, year
+Place of usual residence	Male	Female	Total
+	Registered deaths	Adjusted deaths	Registered deaths	Adjusted deaths	Registered deaths	Adjusted deaths
+Place 1						
+Place 2						
+Place 3						
+Place 4						
+Place …						
+Grand total						
+
+TABLE 3.10 IS OPTIONAL. The age groups provided are a suggestion; actual age groups used will depend on country data.
+Table 3.10 Adjustment of deaths by age group and sex of decedent, year
+Age at death (years)	Male	Female	Total
+	Registered deaths	Adjusted deaths	Registered deaths	Adjusted deaths	Registered deaths	Adjusted deaths
+0–4						
+5–24						
+25–74						
+75+						
+Grand total						
+
+3.4.2	Redistribution for missing values
+ENTER TEXT HERE. Describe the proportion of births that were missing the age of the mother at birth, and the proportion of deaths that were missing the age of the decedent at death. Provide a brief overview of how the data were adjusted and refer to the tables below.
+Table 3.11 Redistribution of live births with incomplete data on ‘age of mother’, year
+Mothers’ age group (years)	Unadjusted	Adjusted
+	Number of births	Proportion (%)	Number of births
+<15			
+15–19			
+20–24			
+25–29			
+30–34			
+35–39			
+40–44			
+45–49			
+50+			
+Unknown		0.0	0
+Grand total		100.0	
+
+Table 3.12 Redistribution of deaths with incomplete data on ‘age of decedent’, year
+Age at death (years)	Number of deaths	Proportion of deaths (%)	Adjusted number of deaths
+	Male	Female	Total	Male	Female	Total	Male	Female	Total
+<1 									
+1–4 									
+5–9 									
+10–14 									
+15–19 									
+20–24 									
+25–29 									
+30–34 									
+35–39 									
+40–44 									
+45–49 									
+50–54 									
+55–59 									
+60–64 									
+65–69 									
+70–74 									
+75–79 									
+80+ 									
+Unknown							0	0	0
+Grand total						100.0			
+
+ 
+Births
+ENTER TEXT HERE. Describe the table below – how has fertility changed over time? Are women giving birth at older or younger ages? Has there been an increase in registration completeness?
+Table 4.1 Summary statistics on fertility by year of occurrence
+Indicator	Year 1	Year 2	Year 3	Year …	Most recent
+Registered live births (number)					
+Males					
+Females					
+Registration completeness (%)					
+Males					
+Females					
+Sex ratio at birth					
+Crude birth rate (per 1,000 population)					
+Total fertility rate (births per woman)					
+
+4.1	Births by place of occurrence
+ENTER TEXT HERE. Discuss the number of live births by sex of newborn and place of occurrence. Refer to Chapter 4, page 41, of the Guide for more information and example text. Where do most births occur? Does this make sense (in terms of major hospitals/cities) for the country? Are there any major differences in the sex ratio by place of occurrence? Also discuss the average number of births per year, along with other interesting information such as whether there has been any significant change over time. Remember to refer to the completeness of registration, as changes in the number of births might reflect changes in completeness over time.
+Table 4.2 Live births by place of occurrence and sex of newborn, year
+Place of occurrence	Number of live births by sex of newborn	Total number of live births	Sex ratio at birth	Registration completeness (%)
+	Male	Female	Unknown			
+Place 1						
+Place 2						
+Place 3						
+Place 4						
+Place …						
+Grand total						
+
+
+
+Insert the line graph from Tab F4.1 of the Excel Workbook here.
+Figure 4.1 Live births by year of occurrence
+ 
+4.2	Births by place of occurrence and place of usual residence of mother
+ENTER TEXT HERE. Describe the distribution of births by the place of occurrence and place of usual residence of the mother. Which place accounts for the highest proportion of births? Are there significant variations in births by place of occurrence and usual residence of mother within the country?
+Table 4.3 Live births by place of occurrence and place of usual residence of mother, year
+Place of occurrence	Place of usual residence of mother	Total number of live births
+	Same as place of occurrence	Other location	Not stated	
+Place 1				
+Place 2				
+Place 3				
+Place 4				
+Place …				
+Not specified 				
+Grand total				
+
+4.3	Births by age of mother
+ENTER TEXT HERE. Comment on the table below—overall, what proportion of births are single babies and what proportion are multiple (twins, triplets, etc)? Does this distribution change depending on the age of the mother? For example, do more multiple births occur among older or younger mothers?
+Table 4.4 Live births by age of mother and type of birth, year
+Mother’s age group (years)	Type of birth	Total number of live births
+	Single	Multiple	
+<15			
+15–19			
+20–24			
+25–29			
+30–34			
+35–39			
+40–44			
+45+			
+Not stated			
+Grand total			
+
+ENTER TEXT HERE. Comment on the table below – what age group contributes the highest proportion of births? If data are available by urban/rural – are there any major differences? (If data by urban/rural are not available, delete the second table and provide data for the whole country in the first table.) Does the age of the mother differ depending on her marital status? For example, are most single mothers younger or older? Is this the same for mothers who are married or in a union?
+Table 4.5 Live births by age and marital status of mother, urban areas, year
+Mother’s age group (years)	Marital status of mother	Total number of live births
+	Single	Married	Other union	Widowed	Divorced	Separated	Not stated	
+<15								
+15–19								
+20–24								
+25–29								
+30–34								
+35–39								
+40–44								
+45+								
+Not stated								
+Grand total								
+
+Table 4.6 Live births by age and marital status of mother, rural areas, year
+Mother’s age group (years)	Marital status of mother	Total number of births
+	Single	Married	Other union	Widowed	Divorced	Separated	Not stated	
+<15								
+15–19								
+20–24								
+25–29								
+30–34								
+35–39								
+40–44								
+45+								
+Not stated								
+Grand total								
+
+ENTER TEXT HERE. Comment on any major changes over time (are mothers getting older or younger?)  Comment on any major differences by residence of the mother.
+Insert the line graphs from Tab F4.2 of the Excel Workbook here.
+Figure 4.2 Live births by age of mother, year
+ 
+
+4.4	Births by site of delivery
+ENTER TEXT HERE. Describe whether births usually occur in a health facility or elsewhere. Does the site of delivery (hospital, home, etc) have an impact on the type of attendant at birth (physician, nurse, etc)? If the data are available by place of occurrence (urban/rural or lower administrative division) include this in the table and comment on any major differences by place. If data by place are not available, provide data for the whole country (‘all births’) and delete the additional rows.
+Table 4.7 Live births by place of occurrence, site of delivery and attendant at birth, year
+Place of occurrence and site of delivery	Attendant at birth	Total number of live births
+	Physician	Nurse	Midwife	Other	Not stated	
+All births						
+Home						
+Hospital						
+Other						
+Unknown						
+Total						
+Place 1						
+Home						
+Hospital						
+Other						
+Unknown						
+Total						
+Place …						
+Home						
+Hospital						
+Other						
+Unknown						
+Total						
+
+4.5	Crude birth rate
+The crude birth rate (CBR) is the number of live births per 1,000 population over a given period (usually one year). When combined with the crude death rate and net migration, crude birth rates can tell us how much the population is increasing or decreasing. They can also help with planning and resource allocation by providing important information such as how many children will be entering school in the coming years, or how many adults will be entering the workforce.  
+ENTER TEXT HERE. Discuss the trend (remember to use adjusted data when calculating the CBR). If the CBR is increasing or decreasing, is this because the number of births is changing substantially (refer to the number of births in the previous section), or is it because of changes in the population size (i.e. out-migration)? Are there any major differences in the CBR by place of usual residence of the mother?
+Table 4.8 Crude birth rate (CBR) by place of usual residence of mother, year
+Place of usual residence of mother	Unadjusted	Adjusted
+	Total number of live births	Total number of live births	CBR (per 1,000 population)
+Place 1			
+Place 2			
+Place 3			
+Place 4			
+Place …			
+Grand total			
+Note: Population data were sourced from Click or tap here to enter text.
+
+ENTER TEXT HERE. If data by urban/rural are available, comment on any major differences. If providing a graph with comparator data (from a census or survey), comment on any major differences between the calculated CBR and estimates – what does this mean in terms of data quality?
+Insert the line graphs from Tab F4.3 of the Excel Workbook here.
+Figure 4.3 Crude birth rate by year of occurrence
+ 
+
+4.6	Age-specific fertility rates
+Fertility rates by mothers’ age group, or age-specific fertility rates (ASFRs), are the number of births occurring to mothers of a certain age group per 1,000 women in that age group in a given period (usually one year). ENTER TEXT HERE. Remember to calculate the ASFRs using the adjusted number of live births. Describe the ASFRs in the table below, noting whether adolescent birth rates are high. If data are available by urban/rural place of residence, do the rates differ? If data are not available by urban/rural, delete the second table and provide data for the total country in the first table. 
+Table 4.9 Age-specific fertility rates by usual residence of mother, urban areas, year
+Mother’s age group (years)	Unadjusted	Adjusted
+	Total number of live births	Total number of live births	ASFR
+10–14			
+15–19			
+20–24			
+25–29			
+30–34			
+35–39			
+40–44			
+45–49			
+Not stated			NA
+Note: Population data were sourced from Click or tap here to enter text.
+NA = not applicable
+
+Table 4.10 Age-specific fertility rates by usual residence of mother, rural areas, year
+Mother’s age group (years)	Unadjusted	Adjusted
+	Total number of live births	Total number of live births	ASFR
+10–14			
+15–19			
+20–24			
+25–29			
+30–34			
+35–39			
+40–44			
+45–49			
+Not stated			NA
+Note: Population data were sourced from Click or tap here to enter text.
+NA = not applicable
+
+ENTER TEXT HERE. Describe the trend over time: At what age is fertility the highest? How has this changed over time? Are women giving birth at older or younger ages? 
+Insert the line graph from Tab F4.4 of the Excel Workbook here.
+Figure 4.4 Age-specific fertility rates (ASFRs) by year of occurrence of birth
+ 
+
+4.7	Total fertility rate
+The total fertility rate (TFR) is the average number of children a woman would give birth to during her lifetime if she were to pass through her childbearing years experiencing present-day age-specific fertility rates. ENTER TEXT HERE. Is the TFR increasing or decreasing over time? What does this mean? Compare the calculated TFR to the most recent census and/or survey and discuss plausibility.
+Insert the line graph from Tab F4.5 of the Excel Workbook here.
+Figure 4.5 Total fertility rate by year of occurrence of birth 
+ 
+
+ENTER TEXT HERE. Comment on the table – are there any major differences by place of usual residence of mother?
+Table 4.11 Total fertility rate (TFR) by usual residence of mother, year
+Place of usual residence of mother	Unadjusted	Adjusted
+	Total number of live births	Total number of live births	TFR
+Place 1			
+Place 2			
+Place 3			
+Place 4			
+Place …			
+Grand total			
+Note: Population data were sourced from Click or tap here to enter text.
+
+ 
+Deaths
+ENTER TEXT HERE. Describe the table below – how has mortality changed over time? Are there major differences for men and women in terms of their CDR or life expectancy? Has there been an increase in registration completeness?
+Table 5.1 Summary statistics on mortality by year of occurrence
+Indicator	Year 1	Year 2	Year 3	Year …	Most recent
+Registered deaths (number)					
+Males					
+Females					
+Registration completeness (%)					
+Males					
+Females					
+Crude death rate (per 1,000 population)					
+Life expectancy at birth (years)					
+Males					
+Females					
+Under-5 mortality rate (per 1,000 live births)					
+Maternal mortality ratio (per 100,000 live births)					
+
+5.1	Deaths by place of usual residence and sex of decedent
+ENTER TEXT HERE. Discuss the average number of deaths per year, along with other interesting information such as whether there has been any significant change over time. Refer to Chapter 5, page 48, of the Guide for more information and example text. Remember to refer to the completeness of registration as changes in the number of deaths might reflect changes in completeness over time. Are there any major differences when looking at deaths by place of usual residence of the decedent?
+Table 5.2 Deaths by place of usual residence and sex of decedent, year
+Place of usual residence of decedent	Sex of decedent	Total number of deaths	Registration completeness (%)
+	Male	Female	Not stated		
+All deaths					
+Urban					
+Rural					
+Place 1					
+Place 2					
+Place 3					
+Place 4					
+Place …					
+Grand total					
+
+Insert the line graph from Tab F5.1 of the Excel Workbook here.
+Figure 5.1 Deaths by year of occurrence
+ 
+
+5.2	Deaths by place of occurrence, place of usual residence, and sex of decedent
+ENTER TEXT HERE. Comment on any important differences between place of occurrence and place of usual residence for males and females. Remember to note if there are major differences in registration completeness by sex (especially if using unadjusted data).
+Table 5.3 Deaths by place of occurrence and place of usual residence of decedent, males, year
+Place of occurrence	Place of usual residence of decedent	Total number of male deaths
+	Same as place of occurrence	Other location	Not stated	
+Place 1				
+Place 2				
+Place 3				
+Place 4				
+Place …				
+Not stated				
+Grand total				
+
+Table 5.4 Deaths by place of occurrence and place of usual residence of decedent, females, year
+Place of occurrence	Place of usual residence of decedent	Total number of female deaths
+	Same as place of occurrence	Other location	Not stated	
+Place 1				
+Place 2				
+Place 3				
+Place 4				
+Place …				
+Not stated 				
+Grand total				
+
+5.3	Deaths by place and site of occurrence
+ENTER TEXT HERE. Where do most deaths occur (in the hospital, at home, etc)? Does this differ between place of occurrence (urban/rural, or other administrative divisions)?
+Table 5.5 Deaths by place of occurrence and site of occurrence, year
+Place of occurrence	Site of occurrence	Total number of deaths
+	Hospital	Other institution	Home	Other	Not stated	
+All deaths						
+Urban						
+Rural						
+Place 1						
+Place 2						
+Place 3						
+Place 4						
+Place …						
+Not stated 						
+Grand total						
+
+5.4	Deaths by place of usual residence, age and sex of decedent
+The age and sex distribution of deaths varies considerably depending on the overall level of mortality in a country, which determines the risk of dying at each age, and the size of the population currently alive at each age. Irrespective of level of mortality, the number of deaths should gradually increase from the age of 5 years onwards. ENTER TEXT HERE. Describe the of distribution of deaths by age and sex. Which age group has the highest and lowest number of deaths for each sex? Which of the two sexes has a higher proportion of deaths at younger ages, and at older ages; describe differences in the pattern of mortality by sex in different age groups. If data by urban/rural are available, comment on any major differences. If data by urban/rural are not available, delete the second table and provide data for the whole country in the first table.
+Table 5.6 Deaths by age and sex of decedent, urban areas, year
+Age of decedent (years)	Sex of decedent	Total number of deaths
+	Male	Female	Not stated	
+<1				
+1–4				
+5–9				
+10–14				
+15–19				
+20–24				
+25–29				
+30–34				
+35–39				
+40–44				
+45–49				
+50–54				
+55–59				
+60–64				
+65–69				
+70–74				
+75–79				
+80+				
+Not stated				
+Grand total				
+
+Table 5.7 Deaths by age and sex of decedent, rural areas, year
+Age of decedent (years)	Sex of decedent	Total number of deaths
+	Male	Female	Not stated	
+<1				
+1–4				
+5–9				
+10–14				
+15–19				
+20–24				
+25–29				
+30–34				
+35–39				
+40–44				
+45–49				
+50–54				
+55–59				
+60–64				
+65–69				
+70–74				
+75–79				
+80+				
+Not stated				
+Grand total				
+
+Insert the bar graph from Tab F5.2 of the Excel Workbook here. 
+Figure 5.2 Deaths by sex and age of decedent, year
+ 
+
+5.5	Crude death rate
+As a mortality indicator, the crude death rate (CDR) is the simplest measure of population health status. It is a measure of the number of deaths relative to the size of that population during a given period, usually one year. It is expressed in numbers of deaths per 1,000 population per year. 
+ENTER TEXT HERE. Discuss the trend in the CDR (remember to use the adjusted number of deaths in the numerator). If CDR is increasing or decreasing, is this because the number of deaths is changing substantially (refer to the number of deaths in the previous section), changes in completeness of registration, or changes in the age structure of the population? Are there any important differences in the CDR by place of usual residence of the decedent?
+Table 5.8 Crude death rate (CDR) by place of usual residence of decedent, year
+Place of usual residence of decedent	Unadjusted	Adjusted
+	Total number of deaths	Total number of deaths	CDR (per 1,000 population)
+Place 1			
+Place 2			
+Place 3			
+Place 4			
+Place …			
+Grand total			
+
+Insert the line graph from Tab F5.3 of the Excel Workbook here.
+Figure 5.3 Crude death rate by sex and year of occurrence of death
+ 
+
+5.6	Age-specific mortality rates
+The age-specific mortality rate (ASMR) is the number of deaths for a specific age or age group in a specific area during a specified period divided by the population of the same age or age group in the same area and period. ENTER TEXT HERE. Describe the ASMRs in the figure below, does it follow an expected pattern? Comment on the plausibility of the pattern of deaths for males/females and by age—for each time period, and what this means about data quality/reporting completeness—including whether data is good enough to use for life tables or whether it should be adjusted.
+Insert the line graph from Tab F5.4 of the Excel Workbook here.
+Figure 5.4 Age-specific mortality rates by sex, year
+ 
+
+5.7	Infant and child mortality
+The neonatal mortality rate (NMR) is the number of deaths among live-born infants during the first 28 days of life per 1,000 live births over a specified time period. Mortality during the neonatal period (the first 28 days of life) accounts for a large proportion of deaths and is a useful indicator of maternal and newborn neonatal health and care. Generally, as infant mortality decreases and fewer deaths are attributed to infectious diseases and environmental influences, a greater proportion of infant deaths would be expected to occur in the neonatal period. The neonatal mortality rate, however, should not increase as this occurs. 
+As with the NMR, the infant mortality rate (IMR: deaths among children less than 1 year) and under-5 mortality rate (U5MR: deaths among children less than 5 years) are important indicators of overall population health and well-being. ENTER TEXT HERE. Comment on the table below – how has infant and child mortality changed over time? If estimates are available from other sources (such as a survey), mention them here and discuss any major differences.
+Table 5.9 Infant and child mortality (deaths per 1,000 live births) by year of occurrence
+Year of occurrence	Neonatal mortality	Infant mortality	Under-5 mortality
+	Deaths (unadjusted)	Deaths (adjusted)	NMR	Deaths (unadjusted)	Deaths (adjusted)	IMR	Deaths (unadjusted)	Deaths (adjusted)	U5MR
+Year 1									
+Year 2									
+Year 3									
+Year …									
+Most recent									
+Note: Population data were sourced from Click or tap here to enter text.
+NMR = neonatal mortality rate; IMR = infant mortality rate; U5MR = under-5 mortality rate
+
+THE MATERNAL MORTALITY RATIO SHOULD ONLY BE CALCULATED IF THERE IS A HIGH LEVEL OF DEATH REGISTRATION COMPLETENESS AND REPORTING OF CAUSE OF DEATH.
+5.8	Maternal mortality
+A maternal death is defined by WHO as the death of a woman while pregnant or within 42 days of termination of pregnancy, irrespective of the duration and site of the pregnancy, from any cause related to or aggravated by the pregnancy or its management but not from accidental or incidental causes. The maternal mortality ratio (MMR) is the ratio of the number of maternal deaths during a given time period per 100,000 live births during the same time period (usually one year). ENTER TEXT HERE. Comment on the table below—has the MMR changed over time? If the data shows considerable variation year-on-year, try presenting data in three or five year averages (especially if there is a very small number of maternal deaths reported each year).
+Table 5.10 Maternal mortality by year of occurrence
+Year of occurrence	Unadjusted	Adjusted
+	Total number of maternal deaths	Total number of maternal deaths	Maternal mortality ratio (MMR)
+Year 1			
+Year 2			
+Year 3			
+Year …			
+Most recent			
+
+SECTION 5.9 IS OPTIONAL.
+5.9	Life expectancy
+Life expectancy at birth indicates the average number of years a newborn infant would live if the current patterns of mortality at the time of its birth were to remain the same throughout its life. ENTER TEXT HERE. What does life expectancy show over time and in relation to regional norms – is it plausible? Are there major differences in life expectancy between males and females?
+Insert the line graph from Tab F5.5 of the Excel Workbook here.
+Figure 5.5 Life expectancy at birth by sex and year of occurrence 
+ 
+
+Life expectancy at 40 years of age is also an indicative measure of premature mortality. It is the number of additional years a person aged 40 would be expected to live, on average, if they continued to experience current mortality rates. ENTER TEXT HERE. Comment on how long a 40-year-old is expected to live, also compare with life expectancy at birth. Are there still differences between males and females? Has the gap increased or decreased, when compared with life expectancy at birth?
+
+SECTION 5.10 IS OPTIONAL. FOETAL DEATHS SHOULD ONLY BE REPORTED ON IF THERE IS A HIGH LEVEL OF DEATH REGISTRATION COMPLETENESS AND GOOD SYSTEMS FOR RECORDING FOETAL DEATHS.
+5.10	Foetal deaths
+A foetal death is a death prior to the complete expulsion or extraction from its mother of a product of conception, irrespective of the duration of pregnancy, and is sometimes referred to as a ‘dead-born foetus’ or ‘stillbirth’. The registration of foetal deaths is important in measuring pregnancy outcomes, women’s health, and mortality occurring just before, during and shortly after birth. ENTER TEXT HERE. Comment on the tables below. Has the number of foetal deaths changed over time? Are there any estimates on the completeness of data on foetal deaths? Has this improved over time? If available, comment on any trends by gestational age and birth weight of the foetus. Are most foetal deaths occurring in very young foetuses?
+Table 5.11 Foetal deaths by year of occurrence and sex of foetus
+Year of occurrence	Sex of foetus	Total number of foetal deaths
+	Male	Female	Not stated	
+Year 1				
+Year 2				
+Year 3				
+Year …				
+Most recent				
+
+Table 5.12 Foetal deaths by gestational age and birth weight of foetus, year
+Gestational age (weeks)	Birth weight of foetus (grams)	Total number of foetal deaths
+	<500	500-999	1,000-1,499	1,500-1,999	2,000-2,499	2,500-2,999	3,000-3,499	3,500-3,999	4,000+	Not stated	
+<20											
+20–21											
+22–27											
+28–31											
+32–35											
+36											
+37–41											
+42+											
+Not stated											
+Grand total											
+
+Causes of death
+ENTER TEXT HERE. Describe the broad causes of death – how does cause of death differ by age group and by sex? Briefly note here any issues around ill-defined causes if they are likely to have a major impact on the quality of the data.
+Table 6.1 Leading causes of death by broad age group and sex, year
+	 	Males 	 	Females
+<5 years	 	1		 	1	
+	 	2		 	2	
+	 	3		 	3	
+	 	4		 	4	
+	 	5		 	5	
+						
+5–14 years	 	1		 	1	
+	 	2		 	2	
+	 	3		 	3	
+	 	4		 	4	
+	 	5		 	5	
+						
+15–69 years		1			1	
+		2			2	
+		3			3	
+		4			4	
+		5			5	
+						
+70+ years		1			1	
+		2			2	
+		3			3	
+		4			4	
+		5			5	
+
+6.1	Deaths by broad cause of death group
+ENTER TEXT HERE. Provide some background information on the three groups (communicable, noncommunicable, and external causes) and describe what ill-defined codes are and why there are important. Refer to Chapter 6, page 58, of the Guide for more information and example text. Describe the graph below: Does it make sense for the country? What proportion of codes are ill-defined? Is this likely to have an impact on policy?
+Insert the bar graph from Tab F6.1 of the Excel Workbook here.
+Figure 6.1 Deaths by broad group, including ill-defined codes, year
+ 
+
+ENTER TEXT HERE. Comment on the graphs below – are there major differences in the pattern of deaths between males and females? Does the overall pattern align with expected trends by age (for example, an increase in deaths due to group 2 causes)?
+Insert the bar graphs from Tab F6.2 of the Excel Workbook here.
+Figure 6.2 Deaths by broad disease group and age, males, year
+ 
+Figure 6.3 Deaths by broad disease group and age, females, year
+ 
+
+6.2	Top 10 causes of death
+ENTER TEXT HERE. Briefly discuss the top 10 leading causes of death for all ages and both sexes combined. If data are available from a previous time period, include this and comment on any changes over time. If ill-defined deaths (R codes) appear in the top 10, discuss them and what they mean in terms of data quality. Discuss some of the potential reasons contributing to ill-defined causes of death.
+Table 6.2 Top 10 causes of death (all ages, both sexes), year
+Rank	Year…	Most recent year
+1		
+2		
+3		
+4		
+5		
+6		
+7		
+8		
+9		
+10		
+
+6.3	Leading causes of death by age and sex
+ENTER TEXT HERE. Briefly discuss all-age causes of death and note that causes by age group will be discussed in the following sections in more detail. Discuss the differences by sex if any. Also discuss whether the leading causes of death for either sex were communicable or non-communicable diseases. Note that causes of death by all ages may be misleading as the leading causes of death differ by the age of the decedent.
+Discuss here the proportion of ill-defined deaths (R codes) and what they mean in terms of data quality. Discuss some of the potential reasons contributing to ill-defined causes of death.
+Table 6.3 Ten leading causes of death, males, year
+Rank	ICD code	Disease	Number of deaths	Proportion (%)
+1				
+2				
+3				
+4				
+5				
+6				
+7				
+8				
+9				
+10				
+-	R00-R99	Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified		
+-	-	All other causes		
+-	-	Total		100.0
+
+Table 6.4 Ten leading causes of death, females, year
+Rank	ICD code	Disease	Number of deaths	Proportion (%)
+1				
+2				
+3				
+4				
+5				
+6				
+7				
+8				
+9				
+10				
+-	R00-R99	Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified		
+-	-	All other causes		
+-	-	Total		100.0
+
+6.3.1	Infants and children (0–4 years)
+ENTER TEXT HERE. Comment on leading causes of death for infants and children and whether this is consistent with expected patterns – a large proportion of deaths due to communicable, neonatal and nutritional diseases; very few deaths due to noncommunicable diseases (apart from those relating to congenital malformations); and a small number of deaths due to external causes and accidents.
+Table 6.5 Ten leading causes of death, infants and children (0–4 years, both sexes combined), year
+Rank	ICD code	Disease	Number of deaths	Proportion (%)
+1				
+2				
+3				
+4				
+5				
+6				
+7				
+8				
+9				
+10				
+-	R00-R99	Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified		
+-	-	All other causes		
+-	-	Total		100.0
+
+6.3.2	Children (5–14 years old)
+ENTER TEXT HERE. Comment on leading causes of death for children and whether this is consistent with expected patterns – a small proportion of deaths due to communicable, neonatal and nutritional diseases; very few deaths due to noncommunicable diseases; and a relatively larger number of deaths due to external causes and accidents.
+Table 6.6 Ten leading causes of death, children (5–14 years, both sexes combined), year
+Rank	ICD code	Disease	Number of deaths	Proportion (%)
+1				
+2				
+3				
+4				
+5				
+6				
+7				
+8				
+9				
+10				
+-	R00-R99	Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified		
+-	-	All other causes		
+-	-	Total		100.0
+
+6.3.3	Adolescents and adults (15–69 years old)
+ENTER TEXT HERE. Comment on leading causes of death for adolescents and adults. Note any major differences between males and females – we would expect to see many more males dying of causes related to injuries and accidents than females. Deaths due to noncommunicable diseases should account for a higher proportion of deaths for both sexes than in previous age groups.
+Table 6.7 Ten leading causes of death, adolescents and adults (15–69 years, males), year
+Rank	ICD code	Disease	Number of deaths	Proportion (%)
+1				
+2				
+3				
+4				
+5				
+6				
+7				
+8				
+9				
+10				
+-	R00-R99	Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified		
+-	-	All other causes		
+-	-	Total		100.0
+
+Table 6.8 Ten leading causes of death, adolescents and adults (15–69 years, females), year
+Rank	ICD code	Disease	Number of deaths	Proportion (%)
+1				
+2				
+3				
+4				
+5				
+6				
+7				
+8				
+9				
+10				
+-	R00-R99	Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified		
+-	-	All other causes		
+-	-	Total		100.0
+
+SECTION 6.2.4 IS OPTIONAL. If very few deaths occur in the 70+ age bracket, the data may not be of sufficient quality to tabulate separately.
+6.3.4	Older adults (70+ years old)
+ENTER TEXT HERE. Comment on leading causes of death for older adults. Note any major differences between males and females – we would expect to see most deaths due to noncommunicable diseases for both sexes; however it is common to see an increase in deaths due to communicable diseases and also external causes (due to trips and falls). Is there a noticeable increase in deaths coded to R codes among this age group? Is the pattern the same for males and females?
+Table 6.9 Ten leading causes of death, older adults (70+ years, males), year
+Rank	ICD code	Disease	Number of deaths	Proportion (%)
+1				
+2				
+3				
+4				
+5				
+6				
+7				
+8				
+9				
+10				
+-	R00-R99	Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified		
+-	-	All other causes		
+-	-	Total		100.0
+
+Table 6.10 Ten leading causes of death, older adults (70+ years, females), year
+Rank	ICD code	Disease	Number of deaths	Proportion (%)
+1				
+2				
+3				
+4				
+5				
+6				
+7				
+8				
+9				
+10				
+-	R00-R99	Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified		
+-	-	All other causes		
+-	-	Total		100.0
+ 
+Marriages and divorces
+ENTER TEXT HERE. Describe the table below – how have marriages and divorces changed over time? Are there major differences for men and women?
+Table 7.1 Summary statistics on marriages and divorces by year of occurrence
+Indicator	Year 1	Year 2	Year 3	Year …	Most recent
+Number of registered marriages					
+Crude marriage rate (per 1,000 population)					
+Average age at first marriage					
+Males					
+Females					
+Number of registered divorces					
+Crude divorce rate (per 1,000 population)					
+Males					
+Females					
+Average age at divorce					
+Males					
+Females					
+
+7.1	Marriages
+7.1.1	Marriages by year
+ENTER TEXT HERE. Discuss the average number of registered marriages by year. Remember to refer to the crude marriage rate in the analysis – has the number of marriages been increasing or decreasing, or are changes just a reflection of population increase or decrease? If data on informal marriages or other types of union are available, also refer to them here.
+Insert the line graph from Tab F7.1 of the Excel Workbook here.
+Figure 7.1 Marriages by year of occurrence
+ 
+
+7.1.2	Marriages by place of usual residence of groom and age of bride and groom
+ENTER TEXT HERE. What age groups do most marriages occur in? Is this the same for brides and grooms? Discuss the average age at first marriage over time, has it been increasing or decreasing? What about the difference between men and women? Is it changing? If data by urban/rural are not available, delete the second table and provide data for the whole country in the first table.
+Table 7.2 Marriages by place of usual residence of groom and age of bride and groom, urban areas, year
+Age group of groom (years)	Age group of bride (years)
+	<15	15–19	20–24	25–29	30–34	35–39	40–44	45–49	50–54	55–59	60–64	65–69	70–74	75+	Not stated	All ages
+<15																
+15–19																
+20–24																
+25–29																
+30–34																
+35–39																
+40–44																
+45–49																
+50–54																
+55–59																
+60–64																
+65–69																
+70–74																
+75+																
+Not stated																
+All ages																
+
+Table 7.3 Marriages by place of usual residence of groom and age of bride and groom, rural areas, year
+Age group of groom (years)	Age group of bride (years)
+	<15	15–19	20–24	25–29	30–34	35–39	40–44	45–49	50–54	55–59	60–64	65–69	70–74	75+	Not stated	All ages
+<15																
+15–19																
+20–24																
+25–29																
+30–34																
+35–39																
+40–44																
+45–49																
+50–54																
+55–59																
+60–64																
+65–69																
+70–74																
+75+																
+Not stated																
+All ages																
+
+Insert the line graph from Tab F7.2 of the Excel Workbook here.
+Figure 7.2 Average age at first marriage by sex and year of occurrence
+ 
+
+7.1.3	Marriages by age and previous marital status
+ENTER TEXT HERE. Comment on the tables below. How does the age of grooms change given their previous marital status? Is the pattern the same for brides, or different? Also comment on the number of marriages where age or previous marital status are not stated as an indicator of data quality.
+Table 7.4 Marriages by age of groom and previous marital status, year
+Age group (years)	Previous marital status	Total marriages
+	Single	Married	Other unions	Widowed	Divorced	Separated	Not stated	
+<15								
+15–19								
+20–24								
+25–29								
+30–34								
+35–39								
+40–44								
+45–49								
+50–54								
+55–59								
+60–64								
+65–69								
+70–74								
+75+								
+Not stated								
+All ages								
+
+Table 7.5 Marriages by age of bride and previous marital status, year
+Age group (years)	Previous marital status	Total marriages
+	Single	Married	Other unions	Widowed	Divorced	Separated	Not stated	
+<15								
+15–19								
+20–24								
+25–29								
+30–34								
+35–39								
+40–44								
+45–49								
+50–54								
+55–59								
+60–64								
+65–69								
+70–74								
+75+								
+Not stated								
+All ages								
+
+
+7.2	Divorces
+7.2.1	Divorces by year
+ENTER TEXT HERE. Discuss the average number of registered divorces by year. Remember to refer to the crude divorce rate in the analysis – has the number of divorces been increasing or decreasing, or are changes just a reflection of population increase or decrease?
+Insert the line graph from Tab F7.3 of the Excel Workbook here.
+Figure 7.3 Divorces by year of occurrence
+ 
+
+7.2.2	Divorces by age
+ENTER TEXT HERE. What age groups do most divorces occur in? Is this the same for husbands and wives? Discuss the average age at divorce over time, has it been increasing or decreasing? What about the difference between men and women? Is it changing? Also comment on the age-specific divorce rates; which age groups have the highest number of divorces? Is it the same for men and women?
+Table 7.6 Divorces by age of husband and age of wife, year
+Age group of husband (years)	Age group of wife (years)
+	<15	15–19	20–24	25–29	30–34	35–39	40–44	45–49	50–54	55–59	60–64	65–69	70–74	75+	Not stated	All ages
+<15																
+15–19																
+20–24																
+25–29																
+30–34																
+35–39																
+40–44																
+45–49																
+50–54																
+55–59																
+60–64																
+65–69																
+70–74																
+75+																
+Not stated																
+All ages																
+
+Insert the line graph from Tab F7.4 of the Excel Workbook here.
+Figure 7.4 Average age at divorce by sex and year of occurrence
+ 
+Insert the bar graph from Tab F7.5 of the Excel Workbook here.
+Figure 7.5 Age-specific divorce rate by sex and year of occurrence
+ 
+
+7.2.3	Divorces by duration of marriage
+ENTER TEXT HERE. On average, how many years of marriage have couples had before they divorce? How has this changed over time? Are couples getting divorced after more or fewer years of marriage? 
+
+Table 7.7 Divorces by duration of marriage and age of husband, year
+Duration of marriage (years)	Age group (years)	All ages
+	<15	15–19	20–24	25–29	30–34	35–39	40–44	45–49	50–54	55–59	60–64	65–69	70–74	75+	Not stated	
+<1																
+1																
+2																
+3																
+4																
+5																
+6																
+7																
+8																
+9																
+10–14																
+15–19																
+20–24																
+25–29																
+30+																
+Not stated																
+Grand total																
+
+Table 7.8 Divorces by duration of marriage and age of wife, year
+Duration of marriage (years)	Age group (years)	All ages
+	<15	15–19	20–24	25–29	30–34	35–39	40–44	45–49	50–54	55–59	60–64	65–69	70–74	75+	Not stated	
+<1																
+1																
+2																
+3																
+4																
+5																
+6																
+7																
+8																
+9																
+10–14																
+15–19																
+20–24																
+25–29																
+30+																
+Not stated																
+Grand total																
+
+Insert the bar graph from Tab F7.6 of the Excel Workbook here.
+Figure 7.6 Divorces by duration of marriage and year of occurrence
+ 
+
+7.2.4	Divorces by number of dependent children
+ENTER TEXT HERE. Comment on the table below. After how many years of marriage do most divorces occur? Is there any trend around the number of dependent children and number of divorces? 
+Table 7.9 Divorces by duration of marriage and number of dependent children, year
+Duration of marriage (years)	Number of dependent children	Total divorces
+	0	1	2	3	4	5	6	7+	
+<1									
+1									
+2									
+3									
+4									
+5									
+6									
+7									
+8									
+9									
+10–14									
+15–19									
+20–24									
+25–39									
+30+									
+Not stated									
+Grand total									
+
+
+
+
+ 
+Summary tables
+Table 8.1 Live births, deaths, and infant and child deaths by year of occurrence
+Year of occurrence	Live births	Deaths	Infant and child (<5 years) deaths
+	Male	Female	Total	Male	Female	Total	Male	Female	Total
+Year 1									
+Year 2									
+Year 3									
+Year…									
+Most recent									
+
+Table 8.2 Live births, deaths, and infant and child deaths by place of usual residence of mother (births) or decedent (deaths), year
+Place of usual residence	Live births	Deaths	Infant and child (<5 years) deaths
+	Male	Female	Total	Male	Female	Total	Male	Female	Total
+Place 1									
+Place 2									
+Place 3									
+Place …									
+
+Table 8.3 Fertility and mortality indicators by year of occurrence
+Year of occurrence	Crude birth rate	Total fertility rate	Crude death rate	Infant mortality rate	Under-5 mortality rate	Maternal mortality ratio
+Year 1						
+Year 2						
+Year 3						
+Year…						
+Most recent						
+
+Table 8.4 Fertility and mortality indicators by place of usual residence of mother (births and infant deaths) or decedent (other deaths), year
+Place of usual residence	Crude birth rate	Total fertility rate	Crude death rate	Infant mortality rate	Under-5 mortality rate	Maternal mortality ratio
+Place 1						
+Place 2						
+Place 3						
+Place 4						
+Place …						
+
+Table 8.5 Marriage and divorce indicators by year of occurrence
+
+
+
+ 
+## Annexes
+THIS SECTION IS OPTIONAL. Use this section to display any complex statistical tables that are too large to go in the main part of the report, for example:
+	Timeliness of registration by detailed administrative region (section 3.2)
+	Age-specific fertility rates by detailed administrative region (section 4.6)
+	Infant mortality rates by detailed administrative region (section 5.7)
+	Maternal mortality by detailed administrative region (section 5.8)
+	Life tables used to calculate life expectancy (section 5.9) 
+
+Examples of different notification and registration forms used in the country may also be included here.
+
+
+
+

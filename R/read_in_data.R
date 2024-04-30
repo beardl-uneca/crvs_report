@@ -5,17 +5,21 @@ library(lubridate)
 library(crvsreportpackage)
 library(ggplot2)
 
+print("Reading in Births data")
 bth_data <- read.csv("./data/anon_bth_data.csv") |>
   clean_names() |>
   select(agebm, birthwgt, bthimar, dob, dor, esttypeb, gestatn, multbth, multtype, rgn, rgnpob, ru11ind, ru11indpob, sbind, sex_orig)
 
+print("Reading in Deaths data")
 dth_data <- read.csv("./data/anon_dth_data.csv") |>
   select(agec, agecunit, ageinyrs, cestrss, cestrssr, dod, dor, dec_stat_dob, esttyped, icd10u,
          icd10uf, i10p001, i10pf001, rgn, rgnpod, ru11ind, ru11indpod, relation, sex_orig)
 
+print("Reading in Birth Estimates data")
 bth_est <- read.csv("./data/new_births_est.csv") |>
   filter(!year %in% 2023 )
 
+print("Reading in Death Estimates data")
 dth_est <- read.csv("./data/new_deaths_est.csv") |>
   mutate(age_grp = case_when(
     age_grp_85 %in% c("01-04","Under 1") ~ "0-4",
@@ -26,6 +30,8 @@ dth_est <- read.csv("./data/new_deaths_est.csv") |>
     TRUE ~ "check")) |>
   filter(!year %in% 2023 ) 
 
+
+print("Deriving variables in Births data")
 bth_data <- bth_data |>
     mutate(agebm_grp = derive_age_groups(as.numeric(substr(agebm, 1, 2)),
                                          start_age = 5, max_band = 95,
@@ -71,16 +77,16 @@ bth_data <- bth_data |>
                             labels = c("<20", "20-21", "22-27",	"28-31", "32-35",	
                                        "36",	"37-41", "42+", "not stated"))) |>
   mutate(timeliness = case_when(
-    reg_delay_days < 30 ~ "current",
-    reg_delay_days %in% c(30:100) ~ "late", 
-    reg_delay_days > 100 ~ "delayed",
+    reg_delay_days < 30 ~ "Current",
+    reg_delay_days %in% c(30:100) ~ "Late", 
+    reg_delay_days > 100 ~ "Delayed",
     TRUE ~ "check"),
     fert_age_grp = ifelse(is.na(fert_age_grp), "unknown", fert_age_grp),
     attend = sample(1:5, size = n(), replace = TRUE, prob = seq(1, 0.1, length.out = 5)))
     
 bth_data$gest_grp[is.na(bth_data$gestatn)] <- "not stated"
 
-
+print("Deriving variables in Deaths data")
 dth_data <- dth_data |>
   mutate(age_grp_95 = derive_age_groups(ageinyrs,
                                         start_age = 5, max_band = 95,
@@ -136,15 +142,18 @@ dth_data <- dth_data |>
            is.na(esttyped) ~ "Not stated",
            TRUE ~ "other"))  |>
   mutate(timeliness = case_when(
-    reg_delay_days < 30 ~ "current",
-    reg_delay_days %in% c(30:100) ~ "late", 
-    reg_delay_days > 100 ~ "delayed",
+    reg_delay_days < 30 ~ "Current",
+    reg_delay_days %in% c(30:100) ~ "Late", 
+    reg_delay_days > 100 ~ "Delayed",
     TRUE ~ "check"))
 
 
 gc()
 
+print("Reading in Population data")
 pops <- read.csv("./data/population.csv")
+
+print("Reading in Reference data")
 nspl <- read.csv("./data/NSPL_FEB_2024_UK.csv") |>
   distinct(cty, laua, rgn)
 
@@ -166,9 +175,10 @@ pops <- merge(pops, nspl, by.x = "ladcode21", by.y = "laua", all.x = TRUE) |>
                                NA))
 rm(nspl)
 
-
+print("Reading in Leading Cause lookup data")
 cause <- read.csv("./data/causes.csv")
 
+print("Reading in Marriages data")
 marr_data <- read.csv("./data/marriages.csv") |>
   mutate(g_age_grp = derive_age_groups(agegs,
                                        start_age = 15, max_band = 75,
@@ -177,13 +187,13 @@ marr_data <- read.csv("./data/marriages.csv") |>
                                        start_age = 15, max_band = 75,
                                        step_size = 5, under_1 = FALSE),
          marcongt = case_when(
-           marcong == 1 ~ "single",
-           marcong %in% c(2,3) ~ "married",
-           marcong %in% c(4,5) ~ "widowed",
-           marcong %in% c(7, 9) ~ "other unions",
-           marcong %in% c(6, 10) ~ "separated",
-           marcong %in% c(11, 12) ~ "divorced",
-         TRUE ~ "not stated"),
+           marcong == 1 ~ "Single",
+           marcong %in% c(2,3) ~ "Married",
+           marcong %in% c(4,5) ~ "Widowed",
+           marcong %in% c(7, 9) ~ "Other unions",
+           marcong %in% c(6, 10) ~ "Separated",
+           marcong %in% c(11, 12) ~ "Divorced",
+         TRUE ~ "Not stated"),
          marconbt = case_when(
            marconb == 1 ~ "single",
            marconb %in% c(2,3) ~ "married",
@@ -194,6 +204,8 @@ marr_data <- read.csv("./data/marriages.csv") |>
            TRUE ~ "not stated"))
 
 set.seed(12)
+
+print("Reading in Divorces data")
 div_data <- read.csv("./data/divorces.csv") |>
   mutate(dom = lubridate::ymd(dom), 
          doda = lubridate::ymd(doda),
@@ -220,4 +232,5 @@ div_data <- div_data |>
                        prob = c(0.4, 0.3, 0.1, 0.05, 0.05, 0.03, 0.02, 0.02, 0.02, 0.01)))
   
 gc()
-# adjusted counts = registered count / completeness
+
+print("Import and derivations complete")

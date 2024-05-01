@@ -1,6 +1,7 @@
 
+t3.1 <- create_t3.1(bth_data = bth_data, dth_data = dth_data,
+                    bth_yr_var = dobyr, dth_yr_var = dodyr)
 
-t3.1 <- create_t3.1(bth_data, dth_data)
 
 t3.2 <- create_t3.2_t3.3(data = bth_data, occ_var = dobyr,
                          topic = "births", tablename = "Table_3_2")
@@ -8,16 +9,17 @@ t3.2 <- create_t3.2_t3.3(data = bth_data, occ_var = dobyr,
 t3.3 <- create_t3.2_t3.3(data = dth_data, occ_var = dodyr,
                          topic = "deaths", tablename = "Table_3_3")
 
-t3.4 <- create_t3.4_and_3.6(data = bth_data, bth_est, dobyr,
-                           topic = "births", tablename = "Table_3_4")
+t3.4 <- create_t3.4_and_3.6(data = bth_data, est_data = bth_est,
+                            by_var = dobyr, topic = "births",
+                            tablename = "Table_3_4")
 
 t3.5 <- create_t3.5_and_3.7(data = bth_data, est_data = bth_est,
                             date_var = dobyr, data_year = 2022,
                             topic = "births", tablename = "Table_3_5")
 
-t3.6 <- create_t3.4_and_3.6(data = bth_data, est_data = bth_est,
-                           date_var = dobyr, data_year = 2022,
-                           topic = "births", tablename = "Table_3_6")
+t3.6 <- create_t3.4_and_3.6(data = dth_data, est_data = dth_est,
+                            by_var = dodyr, topic = "deaths",
+                            tablename = "Table_3_6")
 
 t3.7 <- create_t3.5_and_3.7(data = dth_data, est_data = dth_est,
                             date_var = dodyr, data_year = 2022,

@@ -2,7 +2,6 @@
 t3.1 <- create_t3.1(bth_data = bth_data, dth_data = dth_data,
                     bth_yr_var = dobyr, dth_yr_var = dodyr)
 
-
 t3.2 <- create_t3.2_t3.3(data = bth_data, occ_var = dobyr,
                          topic = "births", tablename = "Table_3_2")
 
@@ -11,7 +10,7 @@ t3.3 <- create_t3.2_t3.3(data = dth_data, occ_var = dodyr,
 
 t3.4 <- create_t3.4_and_3.6(data = bth_data, est_data = bth_est,
                             by_var = dobyr, topic = "births",
-                            tablename = "Table_3_4")
+                            tablename = "Table_3_4", nsfilter = "yes")
 
 t3.5 <- create_t3.5_and_3.7(data = bth_data, est_data = bth_est,
                             date_var = dobyr, data_year = 2022,
@@ -19,7 +18,7 @@ t3.5 <- create_t3.5_and_3.7(data = bth_data, est_data = bth_est,
 
 t3.6 <- create_t3.4_and_3.6(data = dth_data, est_data = dth_est,
                             by_var = dodyr, topic = "deaths",
-                            tablename = "Table_3_6")
+                            tablename = "Table_3_6", nsfilter = "yes")
 
 t3.7 <- create_t3.5_and_3.7(data = dth_data, est_data = dth_est,
                             date_var = dodyr, data_year = 2022,
@@ -44,7 +43,8 @@ t3.12 <- create_t3.11_and_3.12(dth_data, dodyr, data_year = 2022,
                                by_var = age_grp_80, tablename = "Table_3_12",
                                topic = "deaths")
 
-t4.1 <- create_t4.1(data = bth_data, date_var = dobyr, tablename = "Table_4_1")
+t4.1 <- create_t4.1(data = bth_data, est_data = bth_est, date_var = dobyr,
+                    tablename = "Table_4_1")
 
 t4.2 <- create_t4.2(data = bth_data, est_data = bth_est, date_var = dobyr,
                     data_year = 2022, tablename = "Table_4_2")
@@ -103,7 +103,7 @@ t5.12 <- create_t5.12(data = bth_data, date_var = dobyr, data_year = 2022,
 
 t6.1 <- create_t6.1(data = dth_data, date_var = dodyr, data_year = 2022)
 
-t6.2 <- create_t6.2(data = dth_data, date_var = dodyr)
+t6.2 <- create_t6.2(data = dth_data, year_var = dodyr)
 
 t6.3 <- create_t6.3_t6.4(data = dth_data, sex_value = "male")
 

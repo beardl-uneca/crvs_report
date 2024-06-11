@@ -4,6 +4,7 @@ library(tidyr)
 library(lubridate)
 library(crvsreportpackage)
 library(ggplot2)
+library(openxlsx)
 
 print("Reading in Births data")
 bth_data <- read.csv("./data/anon_bth_data.csv") |>
@@ -108,6 +109,11 @@ dth_data <- dth_data |>
                             breaks = c(0, 4, 14, 70, Inf),
                             right = F,
                             labels = c("<5", "5-14", "15-69", "70+")),
+         age_grp_le = as.numeric(cut(ageinyrs, 
+                          breaks = c(0, 1, seq(5, 90, 5), Inf),
+                          right = F,
+                          labels = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+                                     "13", "14", "15", "16", "17", "18", "19", "20" ))),
          dodyr = as.numeric(substr(dod, 1, 4)),
          doryr = as.numeric(substr(dor, 1, 4)),
          dobyr = as.numeric(substr(dec_stat_dob, 1, 4)),
@@ -172,7 +178,12 @@ pops <- merge(pops, nspl, by.x = "ladcode21", by.y = "laua", all.x = TRUE) |>
                                derive_age_groups(as.numeric(substr(age, 1, 2)),
                                                  start_age = 15, max_band = 45,
                                                  step_size = 5, under_1 = FALSE),
-                               NA))
+                               NA),
+         age_grp_le = as.numeric(cut(age, 
+                            breaks = c(0, 1, seq(5, 90, 5), Inf),
+                            right = F,
+                            labels = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+                                       "13", "14", "15", "16", "17", "18", "19", "20" ))))
 rm(nspl)
 
 print("Reading in Leading Cause lookup data")
@@ -234,3 +245,20 @@ div_data <- div_data |>
 gc()
 
 print("Import and derivations complete")
+
+sc <- pops %>%
+  select(rgn, sex, age_grp_le, population_2022) |>
+  group_by(rgn, sex, age_grp_le) |>
+  summarise(pops = sum(population_2022))|>
+  mutate(sex = case_when(
+    sex == "F" ~ "female",
+    sex == "M" ~ "male"))
+
+sc2 <- dth_data %>%
+  filter(substr(rgn, 1, 1) %in% c("E", "W") & sex != "not stated") |>
+  select(rgn, sex, age_grp_le) |>
+  group_by(rgn, sex, age_grp_le) |>
+  summarise(deaths = n())
+
+sc <- merge(sc2, sc, by = c("rgn", "sex", "age_grp_le")) |>
+  arrange(rgn, sex, age_grp_le)

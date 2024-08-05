@@ -1,0 +1,552 @@
+# Configuration parameters for the CRVS Report R pipeline
+
+default:
+  # Data paths
+  data:
+    raw: "./data/raw/"
+    processed: "./data/processed/"
+  
+  # Output paths
+  output:
+    tables: "./outputs/tables/"
+    figures: "./outputs/figures/"
+  
+  # Table Selection To Run
+  # If section is left empty (section_x: ) all tables will be run
+  # If section has an empty string (section_x: [""]) no tables will be run
+  # To run particular tables, run their table_id (section_3: ["3_2","3_4"])
+  tables_selected:
+    section_3: [""]
+    section_4:
+    section_5: [""]
+    section_6: ["6_1", "6_2"]
+    section_7: [""]
+    section_8: [""]
+  
+  # Births Variable Mapping
+  births_mapper:
+    - variable_id: birth1a
+      variable_description: "Date of occurrence"
+      variable_name: "var_2"
+      variable_type: "date"
+    - variable_id: birth1b
+      variable_description: "Date of registration"
+      variable_name: "var_2"
+      variable_type: "date"
+    - variable_id: birth1c
+      variable_description: "Place of occurrence"
+      variable_name: "var_3"
+      variable_type: "character"
+    - variable_id: birth1g
+      variable_description: "Type of birth (i.e., single, twin, triplet, quadruplet or higher multiple delivery)"
+      variable_name: "var_4"
+      variable_type: "character"
+    - variable_id: birth1h
+      variable_description: "Attendant at birth"
+      variable_name: "var_5"
+      variable_type: "character"
+    - variable_id: birth1i
+      variable_description: "Type of place of occurrence (hospital, home, etc.)"
+      variable_name: "var_6"
+      variable_type: "character"
+    - variable_id: birth2a
+      variable_description: "Sex of Newborn"
+      variable_name: "var_7"
+      variable_type: "character"
+    - variable_id: birth3a
+      variable_description: "Date of birth of Mother"
+      variable_name: "var_8"
+      variable_type: "date"
+    - variable_id: birth3b
+      variable_description: "Age of Mother"
+      variable_name: "var_9"
+      variable_type: "numeric"
+    - variable_id: birth3c
+      variable_description: "Marital status"
+      variable_name: "var_10"
+      variable_type: "character"
+    - variable_id: birth3l
+      variable_description: "Place of usual residence"
+      variable_name: "var_11"
+      variable_type: "character"
+    - variable_id: birth3n
+      variable_description: "Urban/Rural Residence"
+      variable_name: "var_11"
+      variable_type: "character"
+    
+  # Deaths Variable Mapping
+  deaths_mapper:
+    - variable_id: death1a
+      variable_description: "Date of occurrence"
+      variable_name: "var_1"
+      variable_type: "date"
+    - variable_id: death1b
+      variable_description: "Date of registration"
+      variable_name: "var_2"
+      variable_type: "date"
+    - variable_id: death1c
+      variable_description: "Place of occurrence"
+      variable_name: "var_3"
+      variable_type: "character"
+    - variable_id: death1g
+      variable_description: "Cause of death"
+      variable_name: "var_4"
+      variable_type: "character"
+    - variable_id: death1j
+      variable_description: "Death occurring during pregnancy, childbirth and puerperium (for females between 15 and 49 years of age)"
+      variable_name: "var_5"
+      variable_type: "logical"
+    - variable_id: death1n
+      variable_description: "Type of place of occurrence (hospital, home, etc.)"
+      variable_name: "var_6"
+      variable_type: "character"
+    - variable_id: death2a
+      variable_description: "Date of birth"
+      variable_name: "var_7"
+      variable_type: "date"
+    - variable_id: death2b
+      variable_description: "Age"
+      variable_name: "var_8"
+      variable_type: "numeric"
+    - variable_id: death2c
+      variable_description: "Sex"
+      variable_name: "var_9"
+      variable_type: "character"
+    - variable_id: death2o
+      variable_description: "Place of usual residence"
+      variable_name: "var_10"
+      variable_type: "character"
+    - variable_id: death2p
+      variable_description: "Place of usual residence of the mother (for deaths under 1 year of age)"
+      variable_name: "var_11"
+      variable_type: "character"
+    - variable_id: death2r
+      variable_description: "Urban/Rural Residence"
+      variable_name: "var_12"
+      variable_type: "character"
+  
+  # Marriage Variable Mapping
+  marriage_mapper:
+    - variable_id: marriage1a
+      variable_description: "Date of occurrence"
+      variable_name: "var_1"
+      variable_type: "date"
+    - variable_id: marriage1b
+      variable_description: "Date of registration"
+      variable_name: "var_2"
+      variable_type: "date"
+    - variable_id: marriage2a
+      variable_description: "Bride date of birth"
+      variable_name: "var_3"
+      variable_type: "date"
+    - variable_id: marriage2b
+      variable_description: "Bride Age"
+      variable_name: "var_4"
+      variable_type: "numeric"
+    - variable_id: marriage2c
+      variable_description: "Bride Marital status (previous)"
+      variable_name: "var_5"
+      variable_type: "character"
+    - variable_id: marriage3a
+      variable_description: "Groom date of birth"
+      variable_name: "var_6"
+      variable_type: "date"
+    - variable_id: marriage3b
+      variable_description: "Groom Age"
+      variable_name: "var_7"
+      variable_type: "numeric"
+    - variable_id: marriage3c
+      variable_description: "Groom Marital status (previous) "
+      variable_name: "var_8"
+      variable_type: "character"
+    - variable_id: marriage3m
+      variable_description: "Groom place of usual residence"
+      variable_name: "var_9"
+      variable_type: "character"
+      
+  # Divorce Variable Mapping
+  divorce_mapper:
+    - variable_id: divorce1a
+      variable_description: "Date of occurrence"
+      variable_name: "var_1"
+      variable_type: "date"
+    - variable_id: divorce1b
+      variable_description: "Date of registration"
+      variable_name: "var_2"
+      variable_type: "date"
+    - variable_id: divorce2a
+      variable_description: "Wife date of birth"
+      variable_name: "var_3"
+      variable_type: "date"
+    - variable_id: divorce2b
+      variable_description: "Wife Age"
+      variable_name: "var_4"
+      variable_type: "numeric"
+    - variable_id: divorce2d
+      variable_description: "Number of dependent children of divorced persons (Wife)"
+      variable_name: "var_5"
+      variable_type: "numeric"
+    - variable_id: divorce2f
+      variable_description: "Date of marriage"
+      variable_name: "var_6"
+      variable_type: "date"
+    - variable_id: divorce2g
+      variable_description: "Duration of marriage"
+      variable_name: "var_7"
+      variable_type: "numeric"
+    - variable_id: divorce3a
+      variable_description: "Husband Date of Birth"
+      variable_name: "var_8"
+      variable_type: "date"
+    - variable_id: divorce3b
+      variable_description: "Husband Age"
+      variable_name: "var_9"
+      variable_type: "numeric"
+    - variable_id: divorce3d
+      variable_description: "Number of dependent children of divorced persons (Husband)"
+      variable_name: "var_10"
+      variable_type: "numeric"
+    - variable_id: divorce3f
+      variable_description: "Date of marriage"
+      variable_name: "var_11"
+      variable_type: "date"
+    - variable_id: divorce3g
+      variable_description: "Duration of marriage"
+      variable_name: "var_12"
+      variable_type: "numeric"
+  
+  # Dictionary of Tables and their functions
+  tables:
+    - table_id: 3_1
+      table_name: "Summary Table"
+      function_name: "create_t3.1"
+      function_args: 
+        bth_data: birth_data
+        dth_data: death_data
+        bth_yr_var: "dobyr"
+        dth_yr_var: "dodyr"
+        tablename: "Table_3_1"
+    - table_id: 3_2
+      table_name: "Detailed Table"
+      function_name: "create_t3.2_t3.3"
+      function_args:
+        data: birth_data
+        occ_var: "dobyr"
+        topic: "births"
+        tablename: "Table_3_2"
+    - table_id: 3_3
+      table_name: "Detailed Table"
+      function_name: "create_t3.2_t3.3"
+      function_args:
+        data: death_data
+        occ_var: "dodyr"
+        topic: "deaths"
+        tablename: "Table_3_3"
+    - table_id: 3_4
+      table_name: "Statistics Table"
+      function_name: "create_t3.4_and_3.6"
+      function_args:
+        data: birth_data
+        est_data: birth_estimates
+        by_var: "dobyr"
+        topic: "births"
+        tablename: "Table_3_4"
+    - table_id: 3_5
+      table_name: "Statistics Table"
+      function_name: "create_t3.5_and_3.7"
+      function_args:
+        data: birth_data
+        est_data: birth_estimates
+        date_var: "dobyr"
+        data_year: 2020
+        topic: "births"
+        tablename: "Table_3_5"
+    - table_id: 3_6
+      table_name: "Statistics Table"
+      function_name: "create_t3.4_and_3.6"
+      function_args:
+        data: death_data
+        est_data: death_estimates
+        by_var: "dodyr"
+        topic: 
+        tablename: "Table_3_6"
+    - table_id: 3_7
+      table_name: "Statistics Table"
+      function_name: "create_t3.5_and_3.7"
+      function_args:
+        data: death_data
+        est_data: death_estimates
+        date_var: "dodyr"
+        data_year: 2020
+        topic: "deaths"
+        tablename: "Table_3_7"
+    - table_id: 3_8
+      table_name: "Statistics Table"
+      function_name: "create_t3.8_and_t3.9"
+      function_args:
+        data: birth_data
+        est_data: birth_estimates
+        date_var: "dobyr"
+        data_year: 2020
+        by_var: "birth1c"
+        topic: "births"
+        tablename: "Table_3_8"
+    - table_id: 3_9
+      table_name: "Statistics Table"
+      function_name: "create_t3.8_and_t3.9"
+      function_args:
+        data: death_data
+        est_data: death_estimates
+        date_var: "dodyr"
+        data_year: 2020
+        by_var: 
+        topic: "deaths"
+        tablename: "Table_3_9"
+    - table_id: 3_10
+      table_name: "Statistics Table"
+      function_name: "create_t3.10"
+      function_args:
+        data:
+        dth_est:
+        date_var:
+        data_year: 
+        tablename: "Table_3_10"
+    - table_id: 3_11
+      table_name: "Statistics Table"
+      function_name: "create_t3.11_and_3.12"
+      function_args: list()
+    - table_id: 3_12
+      table_name: "Statistics Table"
+      function_name: "create_t3.11_and_3.12"
+      function_args: list()
+    - table_id: 4_1
+      table_name: "Summary statistics on fertility by year of occurrence"
+      function_name: "create_t4.1"
+      function_args:
+        data: birth_data
+        est_data: birth_estimates
+        pops: pop_estimates
+        date_var: "dobyr"
+        tablename: "Table_4_1"
+        output_path: output_tables_path
+    - table_id: 4_2
+      table_name: "Live births by place of occurrence and sex of newborn"
+      function_name: "create_t4.2"
+      function_args:
+        data: birth_data
+        est_data: birth_estimates
+        date_var: "dobyr"
+        data_year: 2020
+        tablename: "Table_4_2"
+        output_path: output_tables_path
+    - table_id: 4_3
+      table_name: "Live births by place of occurrence and place of usual residence of mother"
+      function_name: "create_t4.3"
+      function_args:
+        data: birth_data
+        date_var: dobyr
+        data_year: 2020
+        tablename: "Table_4_3"
+        output_path: output_tables_path
+    - table_id: 4_4
+      table_name: "Live births by age of mother and type of birth"
+      function_name: "create_t4.4_to_4_6"
+      function_args:
+        data: birth_data
+        data_year: 2020
+        by_var: "birth1g"
+        rural_urban: "no"
+        col_var: "fert_age_grp"
+        tablename: "Table_4_4"
+        output_path: output_tables_path
+    - table_id: 4_5
+      table_name: "Live births by age and marital status of mother, urban areas"
+      function_name: "create_t4.4_to_4_6"
+      function_args:
+        data: birth_data
+        data_year: 2020
+        by_var: "birth3c"
+        rural_urban: "Urban"
+        col_var: "fert_age_grp"
+        tablename: "Table_4_5"
+        output_path: output_tables_path
+    - table_id: 4_6
+      table_name: "Live births by age and marital status of mother, rural areas"
+      function_name: "create_t4.4_to_4_6"
+      function_args:
+        data: birth_data
+        data_year: 2020
+        by_var: "birth3c"
+        rural_urban: "Rural"
+        col_var: "fert_age_grp"
+        tablename: "Table_4_6"
+        output_path: output_tables_path
+    - table_id: 4_7
+      table_name: "Live births by place of occurrence, site of delivery and attendant at birth"
+      function_name: "create_t4.7"
+      function_args:
+        data: birth_data
+        date_var: "dobyr"
+        data_year: 2020
+        tablename: "Table_4_7"
+        output_path: output_tables_path
+    - table_id: 4_8
+      table_name: "Crude birth rate (CBR) by place of usual residence of mother"
+      function_name: "create_t4.8"
+      function_args:
+        data: birth_data
+        est_data: birth_estimates
+        pops: pop_estimates
+        date_var: "dobyr"
+        data_year: 2020
+        by_var: "birth1c"
+        tablename: "Table_4_8"
+        output_path: output_tables_path
+    - table_id: 4_9
+      table_name: "Age-specific fertility rates by usual residence of mother, urban areas"
+      function_name: "create_table_4_9_and_4_10"
+      function_args:
+        data: birth_data
+        est_data: birth_estimates
+        pops: pop_estimates
+        data_year: 2020
+        rural_urban: "Urban"
+        tablename: "Table_4_9"
+        output_path: output_tables_path
+    - table_id: 4_10
+      table_name: "Age-specific fertility rates by usual residence of mother, rural areas"
+      function_name: "create_table_4_9_and_4_10"
+      function_args:
+        data: birth_data
+        est_data: birth_estimates
+        pops: pop_estimates
+        data_year: 2020
+        rural_urban: "Rural"
+        tablename: "Table_4_10"
+        output_path: output_tables_path
+    - table_id: 5_1
+      table_name: "Summary Table"
+      function_name: "create_t5.1"
+      function_args: list()
+    - table_id: 5_2
+      table_name: "Detailed Table"
+      function_name: "create_t5.2"
+      function_args: list()
+    - table_id: 5_3
+      table_name: "Statistics Table"
+      function_name: "create_t5.3_and_t5.4"
+      function_args: list()
+    - table_id: 5_4
+      table_name: "Statistics Table"
+      function_name: "create_t5.3_and_t5.4"
+      function_args: list()
+    - table_id: 5_5
+      table_name: "Statistics Table"
+      function_name: "create_t5_5"
+      function_args: list()
+    - table_id: 5_6
+      table_name: "Statistics Table"
+      function_name: "create_t5.6_and_t5.7"
+      function_args: list()
+    - table_id: 5_7
+      table_name: "Statistics Table"
+      function_name: "create_t5.6_and_t5.7"
+      function_args: list()
+    - table_id: 5_8
+      table_name: "Statistics Table"
+      function_name: ""
+      function_args: list()
+    - table_id: 5_9
+      table_name: "Statistics Table"
+      function_name: ""
+      function_args: list()
+    - table_id: 5_10
+      table_name: "Statistics Table"
+      function_name: ""
+      function_args: list()
+    - table_id: 5_11
+      table_name: "Statistics Table"
+      function_name: "create_t5.11"
+      function_args: list()
+    - table_id: 5_12
+      table_name: "Statistics Table"
+      function_name: "create_t5.12"
+      function_args: list()
+    - table_id: 6_1
+      table_name: "Leading causes of death by broad age group and sex"
+      function_name: "create_t6.1"
+      function_args:
+        data: death_data
+        cause: causes_dict
+        date_var: "dodyr"
+        data_year: 2022
+        tablename: "Table_6_1"
+        output_path: output_tables_path
+    - table_id: 6_2
+      table_name: "Top 10 causes of death (all ages, both sexes)"
+      function_name: "create_t6.2"
+      function_args:
+        death_data: death_data
+        cause: causes_dict
+        date_var: "dodyr"
+        tablename: "Table_6_2"
+        output_path: output_tables_path
+    - table_id: 7_1
+      table_name: "Summary Table"
+      function_name: "create_t5.1"
+      function_args: list()
+    - table_id: 7_2
+      table_name: "Detailed Table"
+      function_name: "create_t7.2_and_7.3"
+      function_args: list()
+    - table_id: 7_3
+      table_name: "Statistics Table"
+      function_name: "create_t7.2_and_7.3"
+      function_args: list()
+    - table_id: 7_4
+      table_name: "Statistics Table"
+      function_name: "create_table_7.4_and_7.5"
+      function_args: list()
+    - table_id: 7_5
+      table_name: "Statistics Table"
+      function_name: "create_table_7.4_and_7.5"
+      function_args: list()
+    - table_id: 7_6
+      table_name: "Statistics Table"
+      function_name: "create_t7.6_to_7.9"
+      function_args: list()
+    - table_id: 7_7
+      table_name: "Statistics Table"
+      function_name: "create_t7.6_to_7.9"
+      function_args: list()
+    - table_id: 7_8
+      table_name: "Statistics Table"
+      function_name: "create_t7.6_to_7.9"
+      function_args: list()
+    - table_id: 7_9
+      table_name: "Statistics Table"
+      function_name: "create_t7.6_to_7.9"
+      function_args: list()
+    - table_id: 8_1
+      table_name: "Summary Table"
+      function_name: "create_t8.1"
+      function_args: list()
+    - table_id: 8_2
+      table_name: "Detailed Table"
+      function_name: "create_t8.2"
+      function_args: list()
+    - table_id: 8_3
+      table_name: "Statistics Table"
+      function_name: ""
+      function_args:
+        tablename: "Table_8_3"
+    - table_id: 8_4
+      table_name: "Statistics Table"
+      function_name: ""
+      function_args: list()
+    - table_id: 8_5
+      table_name: "Statistics Table"
+      function_name: ""
+      function_args:
+        tablename: "Table_8_4"
+
